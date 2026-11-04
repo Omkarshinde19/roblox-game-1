@@ -87,3 +87,17 @@ title, thumbnail and tags.
 **Open questions:** how the chase plays (who drives, what passengers do),
 what the AI-vs-AI screen in scene 11 looks like, difficulty scaling, TTS
 tool and audio pipeline, final title.
+
+## 2026-11-04 — Session 1 (cont.): Basic script draft
+
+**Asked:** Write a basic script in one md file; user will rewrite it by hand.
+
+**Done:**
+- Wrote `story/script-draft.md` (v0.1): all 13 scenes (01–11, Fail,
+  Post-credits) with dialogue for every character, camera, SFX and
+  gameplay beats. Undecided parts are marked [TBD] (chase controls,
+  AI-vs-AI screen).
+
+**Decisions:** none new. The draft only uses what's in the story bible.
+
+**Next:** user rewrites the script manually.
