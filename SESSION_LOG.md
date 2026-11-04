@@ -54,4 +54,20 @@ impersonation report. Mitigations still open: "parody, not affiliated"
 disclaimer, no real logos or photos, and keep his real name out of the
 title, thumbnail and tags.
 
-**Open questions:** floor order, endings, co-op roles, company/brand names.
+- Stage order: **Ground → Basement → Attic** (the run ends in the attic and
+  the crew escapes through the roof window).
+- Company: **ClosedAI**.
+- Extra NPCs: **both The Admin's mom and a cat** are in the script.
+- Endings (user's own design, replacing the progress-bar gag):
+  - **Main story ending:** after the attic window escape the crew jumps into
+    their car (user said "Tesla"). The Admin chases them in his "helix".
+    The road crosses train tracks with a train coming. If the crew is fast
+    enough they cross and the train hits The Admin. If they're too slow he
+    catches them. Then they reach the AI data center and find out "he uses
+    our GPU better than Scam Altman".
+  - Also kept: Fail "You have been BANNED", Secret "Open Source", and the
+    post-credits gag.
+
+**Open questions (asked for clarification):** what "helix" means, who
+"he" is in the data-center reveal, how the train hit should look, the car's
+parody name, and how the secret ending differs from the main reveal.
