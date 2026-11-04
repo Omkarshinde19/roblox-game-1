@@ -26,9 +26,20 @@ folder for all scripts (scenes, dialogue). Research first with separate agents.
     co-op roles, Roblox cutscene tech → `story/research/setting-and-scenes.md`
 - Added this session log + a CLAUDE.md rule to keep it updated.
 
-**Decisions:**
-- User rule: Claude must ask questions with a list of options before
-  setting any design decision.
+- Research finished and committed by the agents:
+  `557ea5c` discord-mod.md, `65aac2f` setting-and-scenes.md,
+  `6bb0782` sam-altman.md.
+  - The quote is real but stretched: on the *Cheeky Pint* podcast (viral
+    late Oct 2026) Altman called it "quite terrible" for everyone to hold
+    scarce DRAM in home PCs. He never said to take people's RAM.
+  - Roblox policy: use a parody name, no real face/photos, no real logos
+    (OpenAI, Discord, Nvidia), add a "parody, not affiliated" line.
 
-**Open questions:** (pending research results) character naming, art style,
-house location, game length, tone.
+**Decisions (user):**
+- Rule: Claude must ask with a list of options before any design decision.
+- Tone: **comedy stealth-horror** (the mod is a real threat, jump scares).
+- Scope: **one house, 3 floors**, ~20 min, a cutscene between stages.
+- Art style: **semi-realistic** (PBR materials, realistic lighting).
+
+**Open questions:** character name, mod name, location, company names,
+how far to push the semi-realistic look on the Sam avatar.
