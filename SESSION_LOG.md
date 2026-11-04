@@ -41,5 +41,17 @@ folder for all scripts (scenes, dialogue). Research first with separate agents.
 - Scope: **one house, 3 floors**, ~20 min, a cutscene between stages.
 - Art style: **semi-realistic** (PBR materials, realistic lighting).
 
-**Open questions:** character name, mod name, location, company names,
-how far to push the semi-realistic look on the Sam avatar.
+- Sam's name: **Scam Altman** (user chose this over the recommended
+  "Sam Altmann" after being told it carries the highest report risk).
+- Location: **Abilené Heights, Texas**, a fictional town next to an AI
+  data-center construction site (escape route + delivery point).
+- Mod NPC name: **The Admin** (horror-monster framing).
+- Sam's look: **fully semi-realistic** (user chose this after being told it
+  carries the highest moderation risk).
+
+**Risk noted:** the name and look together raise the chance of a Roblox
+impersonation report. Mitigations still open: "parody, not affiliated"
+disclaimer, no real logos or photos, and keep his real name out of the
+title, thumbnail and tags.
+
+**Open questions:** floor order, endings, co-op roles, company/brand names.
