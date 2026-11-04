@@ -76,3 +76,14 @@ title, thumbnail and tags.
     on the GPU.
   - **Secret "Open Source" ending dropped.** Endings are now: Success
     (story ending above), Fail "You have been BANNED", and Post-credits gag.
+- Roles: **4 roles with personalities and their own lines**:
+  Lookout = Paranoid Scam, Hacker = Lowercase Scam, Carrier = Hype Scam,
+  Distraction = Calm Podcast Scam.
+- Voice: **every character speaks in a cheerful AI-assistant voice**. The
+  Admin is peppy until he wakes, then glitches into a distorted voice.
+- Wrote `story/story-bible.md` with only the decided items, plus a
+  13-scene list (01–11, Fail, Post-credits) and open questions.
+
+**Open questions:** how the chase plays (who drives, what passengers do),
+what the AI-vs-AI screen in scene 11 looks like, difficulty scaling, TTS
+tool and audio pipeline, final title.
