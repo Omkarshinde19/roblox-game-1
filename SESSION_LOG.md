@@ -68,6 +68,11 @@ title, thumbnail and tags.
   - Also kept: Fail "You have been BANNED", Secret "Open Source", and the
     post-credits gag.
 
-**Open questions (asked for clarification):** what "helix" means, who
-"he" is in the data-center reveal, how the train hit should look, the car's
-parody name, and how the secret ending differs from the main reveal.
+- Clarified (user):
+  - The Admin's "helix" is a **moped** he barely fits on (played for laughs).
+  - The crew's car is a **ClosedAI Robotaxi**.
+  - Data-center reveal: **the player plugs the stolen GPU in**, and on screen
+    ClosedAI's AI gets taken down by **The Admin's own AI** that was still
+    on the GPU.
+  - **Secret "Open Source" ending dropped.** Endings are now: Success
+    (story ending above), Fail "You have been BANNED", and Post-credits gag.
