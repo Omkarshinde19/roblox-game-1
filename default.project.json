@@ -2,19 +2,16 @@
   "name": "game-1",
   "tree": {
     "$className": "DataModel",
-
     "ReplicatedStorage": {
       "Shared": {
         "$path": "src/shared"
       }
     },
-
     "ServerScriptService": {
       "Server": {
         "$path": "src/server"
       }
     },
-
     "StarterPlayer": {
       "StarterPlayerScripts": {
         "Client": {
@@ -22,22 +19,18 @@
         }
       }
     },
-
-    "Workspace": {
-      "$properties": {
-        "FilteringEnabled": true
-      }
-    },
-
     "Lighting": {
       "$properties": {
-        "Ambient": [0, 0, 0],
+        "Ambient": [
+          0,
+          0,
+          0
+        ],
         "Brightness": 2,
         "GlobalShadows": true,
         "Technology": "Future"
       }
     },
-
     "SoundService": {
       "$properties": {
         "RespectFilteringEnabled": true
