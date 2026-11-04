@@ -1,0 +1,20 @@
+# Roblox place/model files (built by Rojo, not source of truth)
+*.rbxl
+*.rbxlx
+*.rbxm
+*.rbxmx
+*.lock
+
+# Rojo sourcemap (generated)
+sourcemap.json
+
+# Packages (Wally)
+Packages/
+ServerPackages/
+
+# OS / editor
+.DS_Store
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
