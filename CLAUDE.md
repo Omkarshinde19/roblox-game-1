@@ -4,6 +4,11 @@
 - **Commit everything in small commits.** One logical change per commit
   (e.g. one module, one config file, one fix). Use conventional prefixes:
   `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`.
+- **Keep `SESSION_LOG.md` updated in every chat.** Append an entry for each
+  session: what was asked, what was done (with commit hashes), decisions and
+  who made them, open questions.
+- **Ask before deciding.** Before setting any design/story/tech decision,
+  ask the user with a list of options to choose from. Don't pick silently.
 - Files in `src/` are the source of truth. Never edit scripts only inside
   Studio — they will be overwritten by Rojo sync and lost from git.
 
