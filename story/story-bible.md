@@ -135,11 +135,16 @@ runs from the ceiling of the data center to the floor. ClosedAI's AI and
 The Admin's AI fight inside it. Inspired by the Jarvis-vs-Ultron scene, but
 our own visuals: no Marvel characters, look or music.
 
+## Voice (user, 2026-11-08)
+
+**Kokoro** ([hexgrad/kokoro](https://github.com/hexgrad/kokoro),
+Apache-2.0) generates every voice line. Each character gets a different
+preset voice and speed. See `research/voice-generation.md`.
+
 ## Title
 
 **Chip Heist** (confirmed by the user).
 
 ## Open questions
 
-- Voice pipeline: which TTS tool. The user asked about "GPT's free voice
-  libraries"; see `research/voice-generation.md` → OpenAI voices.
+- None open for the story right now.
