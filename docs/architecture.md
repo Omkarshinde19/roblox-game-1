@@ -1,7 +1,16 @@
 # Code Architecture — Chip Heist
 
-Status: **proposal v0.1 (2026-11-08), not locked.** Open forks are listed at
-the bottom. Nothing here gets built until the user approves.
+Status: **proposal v0.2 (2026-11-08).** Core choices decided by the user
+(below). The module layout is still a proposal until the user approves it.
+
+## Decisions (user, 2026-11-08)
+
+| Topic | Decision |
+|---|---|
+| Places | **One place for now** (lobby, briefing, house, road, factory). Split into Lobby + Heist places with TeleportService before publishing |
+| Framework | **Plain modules**, no framework. Services (server) and Controllers (client) are ModuleScripts with `Init()` / `Start()`. All remotes go through one `Remotes.luau` |
+| Robotaxi | **Raycast car**: custom raycast suspension and grip on one body. The driver's client owns the physics and the server checks it |
+| NPC AI | **Behaviour trees** for The Admin, Mom and the cat |
 
 Principles: the server is authoritative, clients only render and send
 requests, `--!strict` everywhere, and one module per responsibility.
@@ -32,8 +41,9 @@ src/
 │  ├─ NoiseService.luau         noise events (cat knocks a pot, a player runs) → NPC hearing
 │  ├─ DownedService.luau        Ban Hammer → #timeout, "appeal" revive
 │  ├─ Npc/
-│  │  ├─ NpcController.luau     shared base: state machine, PathfindingService, vision cone, hearing
-│  │  ├─ Admin.luau             Sit/Game → Snack run → Sleep → Suspicious → Alerted (hunt)
+│  │  ├─ BehaviourTree.luau     small BT runtime: Selector, Sequence, Condition, Action, Decorator
+│  │  ├─ NpcController.luau     shared base: runs the BT each tick, PathfindingService, vision cone, hearing, blackboard
+│  │  ├─ Admin.luau             BT: Alerted (hunt) > Suspicious (investigate) > Snack run > Sleep > Sit/Game
 │  │  ├─ Mom.luau               ground-floor patrol, "DINNER!" timer that calls The Admin up
 │  │  └─ Cat.luau               wanders between floors, knocks props → NoiseService
 │  ├─ Chase/
@@ -69,7 +79,8 @@ src/
   the line, and `VoicePlayer` (client) plays it with subtitles. The Admin's
   glitch is done in-engine with `DistortionSoundEffect`, `PitchShift` and
   random stutters.
-- **NPCs:** all AI runs on the server. Vision is a cone and a raycast;
+- **NPCs:** all AI runs on the server, as behaviour trees ticked a few
+  times a second. Vision is a cone and a raycast;
   hearing comes from `NoiseService`. Difficulty scales the vision range,
   hearing radius and snack-run timer.
 - **Chase:** the driver's client owns the Robotaxi physics (smooth
