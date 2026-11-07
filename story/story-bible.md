@@ -169,3 +169,6 @@ preset voice and speed. See `research/voice-generation.md`.
 - The year 2221 setting: the pitch still mentions Texas and a present-day
   podcast. Do those lines change (e.g. a 2221 news report, an ancient
   "Scam" legend), or does 2221 only flavour the world?
+- Scene 03 still says "cul-de-sac with data-center cranes". The house is
+  now a lone hillside cabin in the forest, so the arrival shot needs a
+  rewrite.
