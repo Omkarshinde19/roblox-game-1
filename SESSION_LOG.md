@@ -172,3 +172,25 @@ the game (example: "Tesla Roadster 2020" by metarex.4d, CC Attribution,
   must be de-badged and reshaped to fit the parody rules (ClosedAI Robotaxi).
 
 **Decisions:** none. The user picks a workflow.
+
+## 2026-11-08 — Session 2 (cont.): Alternative concept pitched
+
+**Asked:** The user pitched a different game and asked which one Claude would
+rather play. In it, you're the Discord mod's son. Scam's robots pulled the
+chip out of your dad's pacemaker because he owned the last piece of RAM, and
+he died. AI has taken over the world. After an emotional opening, you grow
+stronger, learn to shoot, fight Scam's robots, and kill Scam in his own
+factory to free the world from AI.
+
+**Claude's take:**
+- Build the heist first. It's tighter (about 20 min, co-op), funnier, and
+  can be finished.
+- The revenge story is the stronger story but a much bigger build: a
+  shooter, a progression system, enemy AI and a boss.
+- Risk: killing a parody of a real, living person is much riskier under
+  Roblox rules than stealing from him. Suggested making the final boss a
+  machine (e.g. Scam uploaded into his factory's AI) rather than the man.
+- Idea: make it the **sequel**. The Admin from the heist becomes the dad,
+  so the two games share one world.
+
+**Decisions:** none yet. Waiting on the user.
