@@ -75,11 +75,23 @@ With fewer than 4 players, the unfilled roles' tools can be picked up in the hou
   `3d assests/`: a misty conifer valley, a wet mountain road with barriers,
   a foggy road with guardrails, a dark cabin on a stone wall, and a
   translucent factory wrapped in climbing plants.
-- **Town:** ~~Abilené Heights, Texas~~ is now **in question**. The
-  reference photos show misty mountain forest, not Texas, and the factory
-  is no longer across the back fence. Name and region still to decide.
-- **House:** a suburban house with a basement and an attic. See the room
-  list and ASCII map in `research/setting-and-scenes.md` §2. Stages:
+- **Town (user, 2026-11-08):** ~~Abilené Heights, Texas~~ is replaced.
+  The setting is simply **Appalachia**, an unknown territory in the
+  **year 2221**. Misty mountain forest, Smoky-Mountains feel.
+- **Road (user, 2026-11-08):** **3 km** (about 10,700 studs) from the house
+  to the factory. A winding **two-lane** mountain road out of the house's
+  valley (0–1.8 km), then it merges onto a **divided highway**. The train
+  crossing is at about 2.3 km and the factory exit at about 2.9 km.
+- **Factory (user, 2026-11-08):** a new long translucent hall with a timber
+  base and climbing plants, built from scratch in the photo's style with
+  ClosedAI branding (no FREYR logo). ClosedAI **robot workers** walk the
+  data center as background extras.
+- **House (user, 2026-11-08):** the modern cabin from the photo, built as a
+  **hillside walk-out**. From the front it looks single-storey on its stone
+  retaining wall. The **basement** opens downhill under the deck, and a
+  steeper gable roof holds the **attic** and its roof window. The shell is
+  rebuilt in Blender, reusing parts from the archibase log house where they
+  fit. Rooms follow `research/setting-and-scenes.md` §2. Stages:
   1. **Ground floor**: entry points, living room, kitchen (fridge patrol), garage, Mom's area.
   2. **Basement**: The Admin's RGB den, the "server room" (2× GPU on a
      2-person carry, RAM, CPU), storage with the breaker box.
@@ -154,6 +166,6 @@ preset voice and speed. See `research/voice-generation.md`.
 
 ## Open questions
 
-- Town name and region now that the setting is misty mountain forest.
-- The house reference is a single-storey cabin, but the heist needs
-  Ground + Basement + Attic. How to adapt it.
+- The year 2221 setting: the pitch still mentions Texas and a present-day
+  podcast. Do those lines change (e.g. a 2221 news report, an ancient
+  "Scam" legend), or does 2221 only flavour the world?
