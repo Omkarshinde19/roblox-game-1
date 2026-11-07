@@ -68,9 +68,16 @@ With fewer than 4 players, the unfilled roles' tools can be picked up in the hou
 
 ## World
 
-- **Town:** Abilené Heights, Texas (fictional). Across the back fence is a
-  huge AI data-center construction site, and its cranes glow on the
-  skyline. The power keeps browning out because the data center drains the grid.
+- **World layout (user, 2026-11-08):** realistic look. The house and the
+  ClosedAI "factory" (the data center where the heist ends) are **a few
+  km apart**, joined by a **highway through forest** on both sides. The
+  factory sits in the jungle/forest too. Reference photos are in
+  `3d assests/`: a misty conifer valley, a wet mountain road with barriers,
+  a foggy road with guardrails, a dark cabin on a stone wall, and a
+  translucent factory wrapped in climbing plants.
+- **Town:** ~~Abilené Heights, Texas~~ is now **in question**. The
+  reference photos show misty mountain forest, not Texas, and the factory
+  is no longer across the back fence. Name and region still to decide.
 - **House:** a suburban house with a basement and an attic. See the room
   list and ASCII map in `research/setting-and-scenes.md` §2. Stages:
   1. **Ground floor**: entry points, living room, kitchen (fridge patrol), garage, Mom's area.
@@ -147,4 +154,6 @@ preset voice and speed. See `research/voice-generation.md`.
 
 ## Open questions
 
-- None open for the story right now.
+- Town name and region now that the setting is misty mountain forest.
+- The house reference is a single-storey cabin, but the heist needs
+  Ground + Basement + Attic. How to adapt it.
