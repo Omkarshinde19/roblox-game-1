@@ -7,6 +7,7 @@ user (see `SESSION_LOG.md`). Anything not decided yet is under
 ---
 
 ## Pitch
+
 It's the middle of the RAMpocalypse. AI data centers have bought up the
 world's memory, and a stick of RAM costs more than rent. After saying on a
 podcast that it's "terrible" for regular people to own RAM, **Scam Altman**
@@ -15,31 +16,34 @@ the home of **The Admin**, a Discord moderator whose basement rig holds the
 best GPUs in Texas, and steal the chips "for the data center".
 
 ## Pillars
-| Decision | Value |
-|---|---|
-| Tone | **Comedy stealth-horror**: The Admin is a real threat, and there are jump scares when he wakes |
-| Scope | **One house, 3 stages** (Ground → Basement → Attic), about 20 min, with a cutscene between stages |
-| Players | 2–4 co-op, and every player is a Scam |
-| Art | **Semi-realistic**: PBR materials, realistic lighting, a semi-realistic Scam |
-| Voice | Every line is voiced in a **cheerful AI-assistant voice**. The Admin's voice **glitches into a distorted voice when he wakes** |
-| Mode | Story mode: linear, with a scripted ending |
+
+| Decision | Value                                                                                                                                      |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Tone     | **Comedy stealth-horror**: The Admin is a real threat, and there are jump scares when he wakes                                       |
+| Scope    | **One house, 3 stages** (Ground → Basement → Attic), about 20 min, with a cutscene between stages                                  |
+| Players  | 2–4 co-op, and every player is a Scam                                                                                                     |
+| Art      | **Semi-realistic**: PBR materials, realistic lighting, a semi-realistic Scam                                                         |
+| Voice    | Every line is voiced in a **cheerful AI-assistant voice**. The Admin's voice **glitches into a distorted voice when he wakes** |
+| Mode     | Story mode: linear, with a scripted ending                                                                                                 |
 
 ## Cast
 
 ### The Scams (players)
+
 Every player is Scam Altman. The role picked at the briefing decides the
 Scam's **personality and voice lines**.
 
-| Role | Personality | Voice style | Role tool / teamwork action |
-|---|---|---|---|
-| Lookout | **Paranoid Scam** | Nervous, keeps saying "pls chill" | Security-cam tablet, pings, flips the breaker |
-| Hacker | **Lowercase Scam** | Talks the way he tweets: flat, lowercase, no punctuation | Laptop minigames: doorbell cam, garage keypad, The Admin's PC |
-| Carrier | **Hype Scam** | "Feel the AGI!" energy, wants MORE | Bigger bag and faster while loaded. Needed for 2-person GPU carries |
-| Distraction | **Calm Podcast Scam** | Soft-spoken, over-explains everything | Fake Dizcord pings, energy drinks, pizza call |
+| Role        | Personality                 | Voice style                                              | Role tool / teamwork action                                         |
+| ----------- | --------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------- |
+| Lookout     | **Paranoid Scam**     | Nervous, keeps saying "pls chill"                        | Security-cam tablet, pings, flips the breaker                       |
+| Hacker      | **Lowercase Scam**    | Talks the way he tweets: flat, lowercase, no punctuation | Laptop minigames: doorbell cam, garage keypad, The Admin's PC       |
+| Carrier     | **Hype Scam**         | "Feel the AGI!" energy, wants MORE                       | Bigger bag and faster while loaded. Needed for 2-person GPU carries |
+| Distraction | **Calm Podcast Scam** | Soft-spoken, over-explains everything                    | Fake Dizcord pings, energy drinks, pizza call                       |
 
 With fewer than 4 players, the unfilled roles' tools can be picked up in the house.
 
 ### The Admin (antagonist)
+
 - A Discord moderator who sits, sleeps and eats. He's so big he barely
   fits on his moped.
 - He's a real threat when alert. The joke is his priorities and
@@ -52,15 +56,18 @@ With fewer than 4 players, the unfilled roles' tools can be picked up in the hou
 - Rides a **moped** in the chase.
 
 ### The Admin's Mom
+
 - A second NPC who patrols the ground floor. Her yelling "DINNER!" works as
   a stealth timer that pulls The Admin up from the basement.
 - Speaks in the peppy AI voice.
 
 ### The Cat
+
 - Wanders between floors and knocks things over. The noise wakes The Admin.
 - It isn't a threat itself. It meows in the peppy AI voice.
 
 ## World
+
 - **Town:** Abilené Heights, Texas (fictional). Across the back fence is a
   huge AI data-center construction site, and its cranes glow on the
   skyline. The power keeps browning out because the data center drains the grid.
@@ -76,25 +83,27 @@ With fewer than 4 players, the unfilled roles' tools can be picked up in the hou
   optimal compute".
 
 ## Scene list (end to end)
+
 One file per scene goes in `scenes/` as `NN-short-name.md`.
 
-| # | Scene | Type | Summary |
-|---|---|---|---|
-| 01 | The Shortage | Cutscene | Fake news report: RAM costs more than rent. A clip from a parody podcast of Scam saying people owning RAM is "terrible". Smash cut to Scam staring at a GPU. |
-| 02 | ClosedAI Briefing | Cutscene + role pick | Slideshow of the target, The Admin ("online 24/7") and the house. Players pick roles, and each Scam personality gets an intro line. |
-| 03 | Arrival | Cutscene | The Robotaxi pulls into the cul-de-sac at night with data-center cranes behind it. Title card. |
-| 04 | Stage 1 — Ground Floor | Gameplay | Get in, avoid Mom and the cat, loot the garage and living room, find the way down. |
-| 05 | Into the Server Room | Cutscene | Creeping down the stairs: RGB glow, snoring. First look at The Admin asleep in his chair. |
-| 06 | Stage 2 — Basement | Gameplay | Distract The Admin and grab his rig. The 2-person GPU carry. The breaker brownout. |
-| 07 | He Wakes | Cutscene | Jump scare. The Admin's peppy voice glitches into the distorted one. Only way out is up. |
-| 08 | Stage 3 — Attic | Gameplay (chase) | The Admin hunts upward. Grab the Golden DIMM and reach the roof window. |
-| 09 | The Window | Cutscene | The crew jumps off the roof into the waiting Robotaxi. The Admin squeezes onto his moped. |
-| 10 | Train Crossing Chase | Gameplay → cutscene | Robotaxi vs. moped. A train is coming at the crossing. **Fast enough:** the crew crosses and the train hits The Admin (cartoon, no gore). **Too slow:** he catches the crew → Fail ending. |
-| 11 | The Data Center | Cutscene + interaction | A player plugs the stolen GPU into the ClosedAI data center. On screen, ClosedAI's AI is taken down by **The Admin's own AI**, which was still on the GPU. Success ending. |
-| F | You Have Been BANNED | Cutscene (fail) | If the whole crew is caught (or caught in the chase): a Dizcord ban modal, then The Admin goes back to eating. |
-| P | Post-credits | Cutscene | The Admin, bandaged, tries to order a new GPU. It's out of stock, thanks to ClosedAI. |
+| #  | Scene                   | Type                   | Summary                                                                                                                                                                                                 |
+| -- | ----------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 01 | The Shortage            | Cutscene               | Fake news report: RAM costs more than rent. A clip from a parody podcast of Scam saying people owning RAM is "terrible". Smash cut to Scam staring at a GPU.                                            |
+| 02 | ClosedAI Briefing       | Cutscene + role pick   | Slideshow of the target, The Admin ("online 24/7") and the house. Players pick roles, and each Scam personality gets an intro line.                                                                     |
+| 03 | Arrival                 | Cutscene               | The Robotaxi pulls into the cul-de-sac at night with data-center cranes behind it. Title card.                                                                                                          |
+| 04 | Stage 1 — Ground Floor | Gameplay               | Get in, avoid Mom and the cat, loot the garage and living room, find the way down.                                                                                                                      |
+| 05 | Into the Server Room    | Cutscene               | Creeping down the stairs: RGB glow, snoring. First look at The Admin asleep in his chair.                                                                                                               |
+| 06 | Stage 2 — Basement     | Gameplay               | Distract The Admin and grab his rig. The 2-person GPU carry. The breaker brownout.                                                                                                                      |
+| 07 | He Wakes                | Cutscene               | Jump scare. The Admin's peppy voice glitches into the distorted one. Only way out is up.                                                                                                                |
+| 08 | Stage 3 — Attic        | Gameplay (chase)       | The Admin hunts upward. Grab the Golden DIMM and reach the roof window.                                                                                                                                 |
+| 09 | The Window              | Cutscene               | The crew jumps off the roof into the waiting Robotaxi. The Admin squeezes onto his moped.                                                                                                               |
+| 10 | Train Crossing Chase    | Gameplay → cutscene   | Robotaxi vs. moped. A train is coming at the crossing. **Fast enough:** the crew crosses and the train hits The Admin (cartoon, no gore). **Too slow:** he catches the crew → Fail ending. |
+| 11 | The Data Center         | Cutscene + interaction | A player plugs the stolen GPU into the ClosedAI data center. On screen, ClosedAI's AI is taken down by **The Admin's own AI**, which was still on the GPU. Success ending.                        |
+| F  | You Have Been BANNED    | Cutscene (fail)        | If the whole crew is caught (or caught in the chase): a Dizcord ban modal, then The Admin goes back to eating.                                                                                          |
+| P  | Post-credits            | Cutscene               | The Admin, bandaged, tries to order a new GPU. It's out of stock, thanks to ClosedAI.                                                                                                                   |
 
 ## Content guardrails
+
 - Roblox Community Standards ban impersonation that damages someone's reputation.
   The user chose the name **Scam Altman** and a **fully semi-realistic look**
   knowing they carry the highest report risk. Mitigations to keep:
@@ -106,10 +115,18 @@ One file per scene goes in `scenes/` as `NN-short-name.md`.
   Nothing about anyone's private life.
 
 ## Open questions
+
 These are still to decide, and the user picks from options before scenes are written:
+
 - How the chase plays: who drives (Robotaxi autopilot or a player), and
   what the other Scams do (throw energy drinks? hold the loot?).
+  answer : at first the robotaxi autopilot starts the car and runs for some time but due to not proper insturctions it malfunctions and scam has to drive it manually (anyone from the four ppl can choose to drive who sits in the frontseat)
 - What the "AI vs AI" screen looks like in scene 11.
+  answer : it should seem like jarvis v ultron scene where two minds collid in a closed circular container which speareds form the top of teh celling to the bottom
 - Difficulty modes, and how Mom and the cat scale with player count.
+  easy mode : no mom, only cat which knocks pots, frames, glass items, ect to wake the admin up slowly
+  medium mode : mom and cat but not that big of a threat
+  hard mode : both at the most toughest levels
 - Voice pipeline: which TTS tool, and Roblox audio upload and moderation.
-- The title: "Chip Heist" is a working title.
+  we need to figure taht out im thinking of using gpts free voice libraries which can be obtained from? u tell me find github repos
+- The title: "Chip Heist" is a working title. yes it isss!!
