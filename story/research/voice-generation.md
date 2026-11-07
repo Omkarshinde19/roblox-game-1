@@ -35,6 +35,28 @@ LICENSE file before shipping.
 
 ---
 
+## "GPT's free voices" (the user asked, 2026-11-07)
+
+- **ChatGPT's voices aren't open source.** There's no official GitHub
+  repo with them. The real voices (alloy, nova, shimmer, etc.) are only
+  available through the **paid OpenAI TTS API** (e.g. `gpt-4o-mini-tts`).
+  It's cheap at our size: reported at about $12 per 1M audio tokens, so a
+  few hundred lines would cost cents to a few dollars. Check the price on
+  OpenAI's pricing page. One source says `gpt-4o-mini-tts` retires
+  2027-01-06, so check deprecations too.
+  - OpenAI's usage policy asks you to tell players the voice is
+    AI-generated. That fits this game anyway (verify the wording).
+- **GitHub look-alikes that use the same voice names:**
+  - [travisvn/openai-edge-tts](https://github.com/travisvn/openai-edge-tts)
+    (GPL-3.0). Free, but it's not GPT. It maps the names to **Microsoft
+    Edge "Read Aloud"** voices through Microsoft's online service, an
+    unofficial use. Not a safe base for a published game.
+  - [matatonic/openedai-speech](https://github.com/matatonic/openedai-speech).
+    An OpenAI-compatible local server. Its default voices come from Piper,
+    and cloning comes from XTTS (non-commercial), so it's just a wrapper.
+- **Closest free match to the ChatGPT sound:** Kokoro's preset voices
+  (above). They're clean, upbeat and assistant-like.
+
 ## Possible setups (for the user to pick)
 1. **Kokoro only.** The cheapest and simplest. Give each character a
    different preset voice and speed. Gets the "every character sounds like
@@ -45,6 +67,9 @@ LICENSE file before shipping.
 3. **Mix.** Kokoro for the peppy baseline (Mom, Robotaxi, anchor, ClosedAI
    AI, calm Admin), and Qwen3-TTS or Chatterbox for lines that need acting
    (the Scams, Admin waking up).
+4. **OpenAI TTS API (paid).** The real ChatGPT-style voices, with
+   per-line style instructions. Costs a little and needs an API key, and
+   the model may be retired, so lines should be rendered once and saved.
 
 ## The Admin's glitch voice
 Two ways, independent of which TTS we pick:
