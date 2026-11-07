@@ -227,3 +227,55 @@ Blender and Roblox Studio to plan the world and architecture.
 3-stage house, log house vs cabin look, new town name and region, highway
 vs two-lane road, what to do with the `3d assests/` folder (rename,
 gitignore or LFS), what the Tesla bots are for, archibase licenses.
+
+## 2026-11-08 — Session 3: World-building & architecture planning
+
+**Asked:** Follow `prompts/world-building-chat.md`: inspect the 3D models,
+ask about the known gaps, write the world plan, propose the code
+architecture, and only start the Studio blockout after approval.
+
+**Done:**
+- The Blender MCP wasn't connected, so the models were inspected headless
+  with Blender 5.2 and a small 3DS parser (Blender 5.2 has no bundled 3DS
+  importer). Results are in `docs/world-plan.md` §7:
+  - Log house: ~750k tris, 19 × 14 × 10 m, ornate Russian log style. Poor
+    match to the cabin.
+  - Factory: ~172k tris, 123 × 72 × 62 m, old brick plant with floating
+    parts. Poor match to the photo.
+  - Roadster: ~609k tris, 85 objects, real size. Good car base.
+  - Tesla Bot: 5k tris, rigged + animated. Nearly ready. Female bot:
+    161k tris, no rig.
+- Moved `3d assests/` → `assets/source/` and tracked the binaries with Git
+  LFS (`0c0f77c`, `184a788`).
+- Story bible updated with the decisions (`707c815`), plus new open
+  questions (`d91dc7e`).
+- `assets/CREDITS.md` license tracker (`c3cfd27`).
+- `docs/world-plan.md` draft: map in studs, asset list, Blender → Roblox
+  pipeline, lighting recipe, streaming budget, build order (`f1c7023`).
+- `docs/architecture.md` module layout proposal (`4843c0a`) and the
+  decisions (`695446e`).
+
+**Decisions (user):**
+- House: **hillside walk-out** cabin (basement opens downhill, attic in a
+  steeper roof). **Rebuild in Blender + reuse log-house parts**.
+- Town: just **"Appalachia"**, unknown territory, **year 2221**.
+- Road: **mix**, 3 km. Two-lane 0–1.8 km, then divided highway. Crossing at
+  ~2.3 km, factory exit at ~2.9 km.
+- Raw assets: **rename + Git LFS**.
+- Robot models: **ClosedAI data-center workers** (background).
+- Factory: **build new** in the photo's style.
+- Architecture: **one place for now**, **plain modules**, **raycast car**,
+  **behaviour trees** for NPCs.
+
+**Open questions:**
+- Approve `docs/world-plan.md` (the *(proposed)* items) and the module
+  layout in `docs/architecture.md` before the Studio blockout starts.
+- The 2221 setting vs the pitch's Texas/podcast lines, and the scene 03
+  "cul-de-sac" arrival.
+- Licenses for the archibase models and the Tesla bots (unverified).
+- Connect the Blender MCP for the asset work (headless Blender works as a
+  fallback).
+- `.gitignore` ignores `*.rbxm`, so it needs an `!assets/**/*.rbxm`
+  exception before saving Studio models.
+- Nothing is pushed yet. The LFS push is ~320 MB; GitHub's free LFS tier is
+  1 GB storage + 1 GB bandwidth per month.
