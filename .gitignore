@@ -3,6 +3,9 @@
 *.rbxlx
 *.rbxm
 *.rbxmx
+# ...except versioned Studio models in assets/ (stored in Git LFS)
+!assets/**/*.rbxm
+!assets/**/*.rbxmx
 *.lock
 
 # Rojo sourcemap (generated)
