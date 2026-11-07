@@ -202,3 +202,28 @@ saved for another day in `story/ideas/revenge-sequel.md`.
 
 **Open questions (heist):** which TTS setup. Game architecture will be
 planned in a separate chat, and the script finished after that.
+
+## 2026-11-08 — Session 2 (cont.): Voice decision, assets review, next-chat prompt
+
+**Asked:** Save Kokoro as the voice. Look at `3d assests/` (reference
+photos plus usable models) and write a prompt for a new chat that uses
+Blender and Roblox Studio to plan the world and architecture.
+
+**Decisions (user):**
+- Voice: **Kokoro** (`d9b0ea6`).
+- World: the house and the ClosedAI "factory" are **a few km apart**,
+  joined by a **highway through forest**. The factory is in the forest
+  too. **Realistic** look (`ffede13`).
+
+**Done:**
+- Reviewed `3d assests/` (untracked, ~320 MB, not committed):
+  - 4 reference photos: a misty cabin, a forest factory (real FREYR logo,
+    don't copy), a wet mountain road, a foggy guardrail road.
+  - Models: Log House (archibase, ~750k faces), Building factory
+    (archibase, .3ds/.gsm), Tesla Roadster (CC-BY), two Tesla bots.
+- Wrote `prompts/world-building-chat.md` (`f6102ae`).
+
+**Open questions (for the next chat):** single-storey cabin vs the
+3-stage house, log house vs cabin look, new town name and region, highway
+vs two-lane road, what to do with the `3d assests/` folder (rename,
+gitignore or LFS), what the Tesla bots are for, archibase licenses.
