@@ -101,3 +101,27 @@ tool and audio pipeline, final title.
 **Decisions:** none new. The draft only uses what's in the story bible.
 
 **Next:** user rewrites the script manually.
+
+## 2026-11-07 — Session 2: Voice generation research
+
+**Asked:** Find the voice-generation GitHub repos mentioned in the story
+bible. User also said they answered the open questions in detail, and that
+game architecture will be planned in a separate chat, with the script
+finished after that.
+
+**Done:**
+- The story bible names no repos (only "which TTS tool"), and no answers
+  were found saved in the repo. Told the user.
+- Researched open-source TTS repos and wrote
+  `story/research/voice-generation.md` (commit `bf79c0c`):
+  - Shortlist: Kokoro (Apache-2.0), Qwen3-TTS (Apache-2.0),
+    Chatterbox (MIT, retired Aug 2026), Piper (now GPL-3.0).
+  - Ruled out as non-commercial: F5-TTS, XTTS-v2, Fish S2 Pro, Voxtral.
+  - Glitch voice: in-engine Roblox sound effects or offline ffmpeg/sox.
+  - Roblox audio quota: 2,000 uploads per 30 days (ID-verified).
+
+**Decisions:** none. TTS setup is for the user to pick.
+
+**Open questions:** which TTS setup (Kokoro only / Qwen3-TTS only / mix),
+where the glitch is made (in-engine or offline), where the user's detailed
+answers to the open questions are.
