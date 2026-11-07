@@ -125,3 +125,32 @@ finished after that.
 **Open questions:** which TTS setup (Kokoro only / Qwen3-TTS only / mix),
 where the glitch is made (in-engine or offline), where the user's detailed
 answers to the open questions are.
+
+## 2026-11-07 — Session 2 (cont.): User's answers saved
+
+**Asked:** The user saved their answers to the open questions in
+`story/story-bible.md` and asked to check again.
+
+**Done:**
+- Committed the answers as written (`e0d265e`), then folded them into
+  the story bible's decided sections (`3adf73e`).
+- Researched "GPT's free voice libraries" and added the findings to
+  `story/research/voice-generation.md` (`d679995`).
+
+**Decisions (user):**
+- Chase: the Robotaxi autopilot drives at first, then malfunctions. The
+  front-seat Scam (any player) drives manually.
+- AI vs AI (scene 11): two minds collide in a circular containment column
+  from ceiling to floor, inspired by Jarvis vs Ultron (our own visuals).
+- Difficulty: Easy = cat only (knocks things over, slowly waking The
+  Admin); Medium = mom + cat, mild; Hard = both at their toughest.
+- Title: **Chip Heist** confirmed.
+
+**Findings:** ChatGPT's voices aren't open source and have no GitHub
+repo. They're only in the paid OpenAI TTS API. Free look-alikes either
+proxy Microsoft Edge voices (openai-edge-tts) or wrap Piper/XTTS
+(openedai-speech). Kokoro is the closest free sound.
+
+**Open questions:** which TTS setup (Kokoro / Qwen3-TTS / mix / OpenAI
+API). Game architecture will be planned in a separate chat; the script is
+finished after that.
