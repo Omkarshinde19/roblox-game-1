@@ -97,8 +97,8 @@ One file per scene goes in `scenes/` as `NN-short-name.md`.
 | 07 | He Wakes                | Cutscene               | Jump scare. The Admin's peppy voice glitches into the distorted one. Only way out is up.                                                                                                                |
 | 08 | Stage 3 — Attic        | Gameplay (chase)       | The Admin hunts upward. Grab the Golden DIMM and reach the roof window.                                                                                                                                 |
 | 09 | The Window              | Cutscene               | The crew jumps off the roof into the waiting Robotaxi. The Admin squeezes onto his moped.                                                                                                               |
-| 10 | Train Crossing Chase    | Gameplay → cutscene   | Robotaxi vs. moped. A train is coming at the crossing. **Fast enough:** the crew crosses and the train hits The Admin (cartoon, no gore). **Too slow:** he catches the crew → Fail ending. |
-| 11 | The Data Center         | Cutscene + interaction | A player plugs the stolen GPU into the ClosedAI data center. On screen, ClosedAI's AI is taken down by **The Admin's own AI**, which was still on the GPU. Success ending.                        |
+| 10 | Train Crossing Chase    | Gameplay → cutscene   | The Robotaxi's autopilot malfunctions and the front-seat Scam drives. Robotaxi vs. moped. A train is coming at the crossing. **Fast enough:** the crew crosses and the train hits The Admin (cartoon, no gore). **Too slow:** he catches the crew → Fail ending. |
+| 11 | The Data Center         | Cutscene + interaction | A player plugs the stolen GPU into the ClosedAI data center. Inside a ceiling-to-floor circular containment column, ClosedAI's AI is taken down by **The Admin's own AI**, which was still on the GPU. Success ending.                        |
 | F  | You Have Been BANNED    | Cutscene (fail)        | If the whole crew is caught (or caught in the chase): a Dizcord ban modal, then The Admin goes back to eating.                                                                                          |
 | P  | Post-credits            | Cutscene               | The Admin, bandaged, tries to order a new GPU. It's out of stock, thanks to ClosedAI.                                                                                                                   |
 
@@ -114,19 +114,32 @@ One file per scene goes in `scenes/` as `NN-short-name.md`.
 - All ages: cartoon violence only (the train hit, the Ban Hammer). No gore.
   Nothing about anyone's private life.
 
+## Difficulty (user, 2026-11-07)
+
+| Mode   | Mom | Cat | Notes |
+| ------ | --- | --- | ----- |
+| Easy   | No  | Yes | The cat knocks over pots, frames and glass, slowly waking The Admin |
+| Medium | Yes | Yes | Both are present but not a big threat |
+| Hard   | Yes | Yes | Both at their toughest |
+
+## Chase (user, 2026-11-07)
+
+The Robotaxi autopilot starts the escape and drives for a while, then
+malfunctions because it was given bad instructions. A Scam has to drive
+manually: **whichever player is in the front seat** takes the wheel.
+
+## AI vs AI screen (user, 2026-11-07)
+
+Two minds collide inside a **closed, circular containment column** that
+runs from the ceiling of the data center to the floor. ClosedAI's AI and
+The Admin's AI fight inside it. Inspired by the Jarvis-vs-Ultron scene, but
+our own visuals: no Marvel characters, look or music.
+
+## Title
+
+**Chip Heist** (confirmed by the user).
+
 ## Open questions
 
-These are still to decide, and the user picks from options before scenes are written:
-
-- How the chase plays: who drives (Robotaxi autopilot or a player), and
-  what the other Scams do (throw energy drinks? hold the loot?).
-  answer : at first the robotaxi autopilot starts the car and runs for some time but due to not proper insturctions it malfunctions and scam has to drive it manually (anyone from the four ppl can choose to drive who sits in the frontseat)
-- What the "AI vs AI" screen looks like in scene 11.
-  answer : it should seem like jarvis v ultron scene where two minds collid in a closed circular container which speareds form the top of teh celling to the bottom
-- Difficulty modes, and how Mom and the cat scale with player count.
-  easy mode : no mom, only cat which knocks pots, frames, glass items, ect to wake the admin up slowly
-  medium mode : mom and cat but not that big of a threat
-  hard mode : both at the most toughest levels
-- Voice pipeline: which TTS tool, and Roblox audio upload and moderation.
-  we need to figure taht out im thinking of using gpts free voice libraries which can be obtained from? u tell me find github repos
-- The title: "Chip Heist" is a working title. yes it isss!!
+- Voice pipeline: which TTS tool. The user asked about "GPT's free voice
+  libraries"; see `research/voice-generation.md` → OpenAI voices.
