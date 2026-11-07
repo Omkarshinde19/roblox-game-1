@@ -194,3 +194,11 @@ factory to free the world from AI.
   so the two games share one world.
 
 **Decisions:** none yet. Waiting on the user.
+
+## 2026-11-08 — Session 2 (cont.): Concept decision
+
+**Decision (user):** Continue with **Chip Heist**. The revenge story is
+saved for another day in `story/ideas/revenge-sequel.md`.
+
+**Open questions (heist):** which TTS setup. Game architecture will be
+planned in a separate chat, and the script finished after that.
