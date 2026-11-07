@@ -279,3 +279,54 @@ architecture, and only start the Studio blockout after approval.
   exception before saving Studio models.
 - Nothing is pushed yet. The LFS push is ~320 MB; GitHub's free LFS tier is
   1 GB storage + 1 GB bandwidth per month.
+
+## 2026-11-08 — Session 3 (cont.): Push + first world blockout
+
+**Asked:** Push everything in small commits and start the blockout.
+
+**Done:**
+- Pushed all commits, including 331 MB of LFS assets, to `origin/main`.
+- `.gitignore` now allows Studio models under `assets/` (`11a7869`).
+  `.rbxmx` files are tracked in LFS (`d92cdd2`).
+- Built the blockout in Studio (Place1) through the Studio MCP:
+  - Road: 260 path nodes over 10,360 studs. Two-lane with alternating
+    concrete barriers and guardrails up to 6,430 studs, then a divided
+    highway with a median.
+  - Terrain: gentle rolling hills, a base band and the cut road corridor.
+  - Hillside plot: plateau at y 246, walk-out yard at y 234, gravel drive,
+    mountain ridge behind.
+  - Greybox cabin: basement (den, storage, walk-out door), ground floor
+    (glass front, kitchen, living room, Mom's room, stair hall, garage,
+    back door, doggy door), attic (hatch + ladder, Golden DIMM marker),
+    steep metal gable roof with the escape roof window, deck on a stone
+    wall.
+  - Train crossing at ~8,200 studs: booms, signals, rails through
+    cuttings, placeholder train parked up the track.
+  - Factory: clearing, access road, 536 × 64 × 143-stud translucent hall
+    on a dark timber base, roof fins, vine markers, side block, server
+    racks, containment column.
+  - Lighting: night fog recipe from the plan.
+- The lighting and streaming settings are in `default.project.json`
+  (`0b3cfa5`), because the MCP can't write `Lighting.Technology` or the
+  streaming radius.
+- The blockout is saved as rebuild scripts in `tools/blockout/`
+  (`cf82151`, `a8f4824`, `8274ecd`, `f60c25d`, `b35b53b`, `232fb2e`,
+  `670251e`). Rojo doesn't sync terrain or parts, so the place can be
+  rebuilt from git. Claude chose this; the user can change it.
+- Playtest: the player spawns in the yard on grass. No script errors. One
+  unrelated asset warning: `rbxassetid://203785492` has the wrong asset
+  type.
+
+**Decisions:** none new from the user. Claude's choices, open to change:
+the exact road curve, the house layout dimensions, the factory position
+(south-east of the highway end), and keeping the blockout as scripts in
+`tools/blockout/`.
+
+**Open questions / next:**
+- The user should save the place file (File → Save to File). `*.rbxl` is
+  git-ignored.
+- Next in the build order: drive the road with a placeholder car to check
+  the ~1.8 min timing, playtest the stealth routes in the greybox house,
+  then bring in the first Blender asset (the cabin shell).
+- No trees yet. The forest scatter comes with the road kit (build step 6).
+- The highway dead-ends at the factory exit (no onward road).
