@@ -154,3 +154,21 @@ proxy Microsoft Edge voices (openai-edge-tts) or wrap Piper/XTTS
 **Open questions:** which TTS setup (Kokoro / Qwen3-TTS / mix / OpenAI
 API). Game architecture will be planned in a separate chat; the script is
 finished after that.
+
+## 2026-11-07 — Session 2 (cont.): 3D model formats
+
+**Asked:** Which Sketchfab download format is best for bringing models into
+the game (example: "Tesla Roadster 2020" by metarex.4d, CC Attribution,
+608.9k triangles).
+
+**Answer given:**
+- Editing in Blender first: **FBX (original format)**. Importing straight
+  into Roblox: **GLB with 1k textures** (one file, textures embedded, and
+  Roblox textures max out at 1024×1024).
+- Most Sketchfab models are far too heavy for Roblox (MeshParts have a
+  triangle limit, around 20k each), so decimate and split them in Blender
+  first.
+- CC-BY models need credit (keep a credits file). Real brands (Tesla)
+  must be de-badged and reshaped to fit the parody rules (ClosedAI Robotaxi).
+
+**Decisions:** none. The user picks a workflow.
