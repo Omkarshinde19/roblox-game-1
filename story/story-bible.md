@@ -164,11 +164,18 @@ preset voice and speed. See `research/voice-generation.md`.
 
 **Chip Heist** (confirmed by the user).
 
+## Script direction (user, 2026-11-10)
+
+- **Year 2221:** the RAMpocalypse is happening **in 2221**, same joke as
+  before. Scam is still ClosedAI's CEO in 2221 (running gag: he "never
+  leaves", maybe uploaded). The podcast clip in scene 01 becomes a **2221
+  hologram podcast**.
+- **Scene 03 arrival:** a **factory glow reveal**. Open on the ClosedAI
+  hall glowing through the trees far away, pan across the foggy valley to
+  the tiny lit cabin on the hill, then the Robotaxi pulls in.
+- **Robot workers (scene 11):** ClosedAI robots walk the racks in the
+  background. When The Admin's AI wins, they all freeze, turn to the
+  column and bow (or type "/ban"). One beat, no lines.
+
 ## Open questions
 
-- The year 2221 setting: the pitch still mentions Texas and a present-day
-  podcast. Do those lines change (e.g. a 2221 news report, an ancient
-  "Scam" legend), or does 2221 only flavour the world?
-- Scene 03 still says "cul-de-sac with data-center cranes". The house is
-  now a lone hillside cabin in the forest, so the arrival shot needs a
-  rewrite.
