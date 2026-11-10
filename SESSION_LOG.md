@@ -354,3 +354,43 @@ questions first.
 - The script agent edits `script-draft.md` directly as v0.2.
 
 **Open questions:** none new. The script chat may raise its own.
+
+## 2026-11-10 — Session 4: Script update (v0.1 → v0.2)
+
+**Asked:** Follow `prompts/script-update-chat.md`: bring
+`story/script-draft.md` in line with the world and design decisions made
+since v0.1. No code, Studio or Blender.
+
+**Done:**
+- Recorded the four new decisions in the story bible and fixed its stale
+  Texas / cul-de-sac lines (`6e330f8`).
+- Scenes 01–03: 2221 hologram news and podcast, the briefing on the cabin
+  3 km from the forest data center, the factory glow reveal (`911fa2b`).
+- Scenes 04–08: entry points, rooms and routes match the built cabin; the
+  breaker joke is about the grid; new server lockdown in 07 (`efffd1e`).
+- Scenes 09–11: roof slide to the Robotaxi by the garage, the full chase
+  route, the forest hall, the containment-column fight and the robots'
+  freeze-and-bow (`9103caf`).
+- Header set to v0.2 with a changelog, updated cast, notes and open
+  questions; the post-credits phone became a hologram store (`bad11f0`,
+  `fa2ccd2`).
+
+**Decisions (user):**
+- Scene 01 keeps both parts: hologram news report, then hologram podcast.
+- Scam in 2221: he uploaded himself, and the player Scams are his copies.
+- Scene 07: The Admin triggers a **server lockdown**. Shutters close the
+  walk-out and every ground-floor door; the attic roof window is the only
+  exit off his system.
+- Autopilot fails **mid two-lane, at about 1 km**. The front-seat Scam
+  drives the rest.
+
+**Claude's choices, open to change:** a hologram of the original Scam
+runs the briefing; the robots bow (not "/ban"); the crew slides down the
+front roof to the east end; the autopilot breaks after Hype and Podcast
+give it conflicting orders; a tiny shutter on the doggy door.
+
+**Open questions (also at the end of the script):**
+1. Is the basement walk-out an entry in Stage 1? It skips the stage.
+2. What passengers do during the chase.
+3. Whether any shutter can be reopened in Stage 3.
+4. Who briefs the crew in scene 02.
