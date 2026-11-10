@@ -187,6 +187,16 @@ return function()
 	end
 	Kit.box(sF, "Railing", CFrame.new(-2, G + 1.75, -87), Vector3.new(0.4, 3.5, 24), C.darkWood, M.Wood)
 	Kit.box(sF, "Railing", CFrame.new(-5.5, G + 1.75, -75), Vector3.new(7, 3.5, 0.4), C.darkWood, M.Wood)
+	-- invisible ramp over the steps so players and NPCs walk the stairs smoothly
+	local rampTop, rampBottom = Vector3.new(-5.5, G, -99), Vector3.new(-5.5, B, -74.5)
+	local ramp = Kit.box(
+		sF,
+		"StairRamp",
+		CFrame.lookAt((rampTop + rampBottom) / 2, rampBottom) * CFrame.new(0, -0.2, 0),
+		Vector3.new(7, 0.4, (rampTop - rampBottom).Magnitude),
+		C.floor
+	)
+	ramp.Transparency = 1
 	local sign = Kit.box(sF, "Sign_ModOnly", CFrame.new(-5.5, G + 10.5, -103), Vector3.new(7, 2, 0.2), C.black)
 	Kit.sign(sign, Enum.NormalId.Back, "DO NOT ENTER. MOD ONLY", C.red)
 
