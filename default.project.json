@@ -12,6 +12,11 @@
         "$path": "src/server"
       }
     },
+    "ServerStorage": {
+      "WorldTools": {
+        "$path": "tools/blockout"
+      }
+    },
     "StarterPlayer": {
       "StarterPlayerScripts": {
         "Client": {
