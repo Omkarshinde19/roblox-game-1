@@ -330,3 +330,27 @@ the exact road curve, the house layout dimensions, the factory position
   then bring in the first Blender asset (the cabin shell).
 - No trees yet. The forest scatter comes with the road kit (build step 6).
 - The highway dead-ends at the factory exit (no onward road).
+
+## 2026-11-10 — Session 3 (cont.): Next steps + script-update handoff
+
+**Asked:** What the next steps are, then a summary and a prompt for a
+separate "script" Claude chat to update the story script. Ask the script
+questions first.
+
+**Done:**
+- Listed the next steps (save the place, test-drive the road, playtest
+  the house, cabin in Blender, Robotaxi, forest, crossing, factory, plus
+  the code base layer).
+- Recorded the script direction in the story bible (`5f202f1`).
+- Wrote `prompts/script-update-chat.md`: a summary of every world/design
+  change since script v0.1, the list of conflicting lines, the house room
+  list and the deliverable (`script-draft.md` v0.2).
+
+**Decisions (user):**
+- Year 2221: the RAMpocalypse happens in 2221, same joke. Scam is still
+  CEO, and the podcast is a 2221 hologram podcast.
+- Scene 03: factory glow reveal across the valley to the cabin.
+- Robot workers: background plus one freeze-and-bow gag in scene 11.
+- The script agent edits `script-draft.md` directly as v0.2.
+
+**Open questions:** none new. The script chat may raise its own.
