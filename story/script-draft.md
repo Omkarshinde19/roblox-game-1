@@ -1,7 +1,7 @@
 # Chip Heist — Basic Script (Draft v0.2)
 
 A rough pass for you to rewrite by hand. It follows `story-bible.md`.
-Things still undecided are marked **[OPEN]** and listed at the end.
+Nothing is marked undecided right now.
 
 **Changes from v0.1 (2026-11-10)**
 - **Setting:** Abilené Heights, Texas → **Appalachia, year 2221**. Misty
@@ -27,6 +27,12 @@ Things still undecided are marked **[OPEN]** and listed at the end.
   happens in the **containment column**, and the robot workers
   **freeze and bow**.
 - **P:** The Admin shops on a hologram store.
+
+**Added after the v0.2 questions (2026-11-10)**
+- **04–05:** the basement walk-out is an open entry, and the hardest one.
+- **08–09:** the Hacker can reopen one shuttered door as a second escape.
+- **10:** passengers throw Mountain Doom cans, or loot, at the moped.
+- **02:** the hologram of the original Scam stays as the briefer.
 
 **Format**
 - `CHARACTER:` line = voiced line in the cheerful AI-assistant voice
@@ -393,8 +399,15 @@ moped wobbles out after it.
 on one side, guardrails on the other, dense forest and fog. The Robotaxi
 drives itself. The moped's headlight closes in behind.
 
-**[OPEN]** What the passengers do during the chase. See the open
-questions at the end.
+[PLAY] **Passengers fight the moped.** They throw Mountain Doom cans at
+The Admin to slow him down. They can also throw stolen loot at him for a
+much bigger slowdown, but every piece thrown comes off the score.
+
+PODCAST (throwing a can): What's interesting is that carbonation is a great deterrent.
+
+HYPE (when loot is thrown): NOT THE RAM! Anything but the RAM!
+
+ADMIN (GLITCHED, hit by loot): That. Is. MY. RAM.
 
 ROBOTAXI: Autopilot engaged! Sit back and enjoy the compute.
 
@@ -555,17 +568,5 @@ ADMIN (slowly glitching): ...Scam.
   and NVIDEO only.
 
 ## Open questions
-1. **Basement walk-out as an entry (scene 04).** Getting in under the
-   deck skips Stage 1 and the scene 05 stairs. Options: locked from the
-   inside until Stage 2 (it becomes a loot shortcut to the Robotaxi); open
-   but the hardest entry (it lands the crew next to the sleeping Admin);
-   remove it as an entry.
-2. **Passengers in the chase (scene 10).** Options: they only hold the
-   loot and shout; they throw energy drinks at the moped to slow it; they
-   lean to help the car through the bends.
-3. **Shutters in Stage 3 (scenes 07–08).** Options: the lockdown is final;
-   the Hacker can reopen one door as a second escape; the Lookout can flip
-   the breaker to raise the shutters for a few seconds.
-4. **Who briefs the crew (scene 02).** The draft uses a hologram of the
-   original Scam. Options: keep the hologram; one of the player copies
-   leads; a ClosedAI assistant voice leads.
+None right now. The four from v0.2 were answered on 2026-11-10 and are
+written into scenes 02, 04, 05, 08, 09 and 10.
