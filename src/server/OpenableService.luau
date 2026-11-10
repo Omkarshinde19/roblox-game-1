@@ -69,7 +69,8 @@ local function apply(state: State)
 end
 
 -- Opens or closes a model. `loud` decides how far the noise carries.
-function OpenableService.setOpen(model: Model, open: boolean, loud: boolean, source: Player?)
+-- `source` is the player who did it; `from` is the NPC model that did it.
+function OpenableService.setOpen(model: Model, open: boolean, loud: boolean, source: Player?, from: Instance?)
 	local state = states[model]
 	if not state or state.isOpen == open then
 		return
@@ -77,7 +78,7 @@ function OpenableService.setOpen(model: Model, open: boolean, loud: boolean, sou
 	state.isOpen = open
 	apply(state)
 	local radius = if loud then Config.LOUD_NOISE_RADIUS else Config.QUIET_NOISE_RADIUS
-	NoiseService.emit(state.moving:GetPivot().Position, radius, loud, source)
+	NoiseService.emit(state.moving:GetPivot().Position, radius, loud, source, from)
 	task.spawn(animate, state, if open then state.open else state.closed)
 end
 
