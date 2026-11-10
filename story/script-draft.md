@@ -1,7 +1,32 @@
-# Chip Heist — Basic Script (Draft v0.1)
+# Chip Heist — Basic Script (Draft v0.2)
 
-A rough first pass for you to rewrite by hand. It follows `story-bible.md`.
-Things still undecided are marked **[TBD]**.
+A rough pass for you to rewrite by hand. It follows `story-bible.md`.
+Things still undecided are marked **[OPEN]** and listed at the end.
+
+**Changes from v0.1 (2026-11-10)**
+- **Setting:** Abilené Heights, Texas → **Appalachia, year 2221**. Misty
+  mountain forest.
+- **01:** the news report and podcast are now **2221 holograms**. Scam is
+  still CEO because he **uploaded himself**; the player Scams are his copies.
+- **02:** the briefing targets a lone cabin 3 km from ClosedAI's forest
+  data center. A hologram Scam briefs his own copies.
+- **03:** the cul-de-sac arrival is now the **factory glow reveal** across
+  the valley to the cabin.
+- **04–08:** rooms and routes match the built cabin: front slider, back
+  door, doggy door, garage side door, basement walk-out, stair hall,
+  storage room breaker box, pull-down attic ladder. No upstairs floor.
+- **06:** the breaker joke is now about the data center draining the grid.
+- **07:** new **server lockdown**: shutters close every door, so the attic
+  roof window is the only way out.
+- **09:** the crew slides down the front roof to the Robotaxi on the gravel
+  drive by the garage.
+- **10:** [TBD] removed. The chase is written out: autopilot on the
+  two-lane road, malfunction at about 1 km, front-seat Scam drives the
+  merge (1.8 km), the crossing (2.3 km) and the factory exit (2.9 km).
+- **11:** the stadium is now the **translucent forest hall**. The AI fight
+  happens in the **containment column**, and the robot workers
+  **freeze and bow**.
+- **P:** The Admin shops on a hologram store.
 
 **Format**
 - `CHARACTER:` line = voiced line in the cheerful AI-assistant voice
@@ -15,7 +40,12 @@ Things still undecided are marked **[TBD]**.
   (Hacker), **HYPE** (Carrier), **PODCAST** (Distraction). With fewer than
   4 players, the missing role's lines are skipped or given to another Scam.
 - **ADMIN**: The Admin. **MOM**: The Admin's mom. **CAT**: the cat.
-- **ROBOTAXI**: the crew's car. **ANCHOR**: TV news anchor. **HOST**: podcast host.
+- **ROBOTAXI**: the crew's car. **ANCHOR**: hologram news anchor. **HOST**:
+  hologram podcast host.
+- **CLOSEDAI AI**: ClosedAI's model. **ADMIN'S AI**: The Admin's own AI,
+  still on his GPU.
+- It's 2221. The original Scam uploaded himself, and the player Scams are
+  his copies.
 
 ---
 
@@ -483,12 +513,13 @@ ADMIN (peppy, mouth full): Back to moderating. Somebody has to do it. For free.
 
 ## P — Post-credits
 
-[CAM] The Admin's basement, the next day. He's covered in bandages and
-his moped is crumpled in the corner. He's on his phone.
+[CAM] The Admin's basement den, the next day. He's covered in bandages
+and his moped is crumpled in the corner. A hologram store floats over
+his desk.
 
 ADMIN (peppy): Okay! Ordering one new GPU!
 
-[SFX] An error sound. [CAM] Phone screen: "OUT OF STOCK. Reserved by ClosedAI."
+[SFX] An error sound. [CAM] The hologram: "OUT OF STOCK. Reserved by ClosedAI."
 
 ADMIN (slowly glitching): ...Scam.
 
@@ -497,9 +528,29 @@ ADMIN (slowly glitching): ...Scam.
 ---
 
 ## Notes for rewriting
-- Role lines are short so voice files stay small. Add more barks from
-  `research/discord-mod.md` (43 Admin lines) and the gags in
-  `research/sam-altman.md`.
+- Every line is voiced with **Kokoro** TTS, one audio file per line. Keep
+  lines short and easy to say, and keep a line list per character when
+  this is final.
+- The Admin's glitched lines use the same peppy audio with distortion
+  added in Roblox.
+- Add more barks from `research/discord-mod.md` (43 Admin lines) and the
+  gags in `research/sam-altman.md`.
 - Don't put real Sam Altman quotes in as dialogue. Paraphrase.
-- Every line is a separate TTS audio file, so keep a line list per
-  character when this is final.
+- No real logos or names in any scene: ClosedAI, Dizcord, Mountain Doom
+  and NVIDEO only.
+
+## Open questions
+1. **Basement walk-out as an entry (scene 04).** Getting in under the
+   deck skips Stage 1 and the scene 05 stairs. Options: locked from the
+   inside until Stage 2 (it becomes a loot shortcut to the Robotaxi); open
+   but the hardest entry (it lands the crew next to the sleeping Admin);
+   remove it as an entry.
+2. **Passengers in the chase (scene 10).** Options: they only hold the
+   loot and shout; they throw energy drinks at the moped to slow it; they
+   lean to help the car through the bends.
+3. **Shutters in Stage 3 (scenes 07–08).** Options: the lockdown is final;
+   the Hacker can reopen one door as a second escape; the Lookout can flip
+   the breaker to raise the shutters for a few seconds.
+4. **Who briefs the crew (scene 02).** The draft uses a hologram of the
+   original Scam. Options: keep the hologram; one of the player copies
+   leads; a ClosedAI assistant voice leads.
