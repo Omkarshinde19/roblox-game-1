@@ -165,8 +165,10 @@ LOWERCASE: for deliveries. obviously
 - **Doggy door** beside the back door (one Scam crawls in and unlocks the
   back door from inside).
 - **Garage side door** (keypad, which the Hacker cracks).
-- **Basement walk-out** under the deck. **[OPEN]** Getting in here skips
-  this stage and the scene 05 stairs. See the open questions at the end.
+- **Basement walk-out** under the deck. It's open, and it's the hardest
+  way in: the crew skips the ground floor and its loot, and comes in right
+  next to the sleeping Admin. Scene 05 then plays from the walk-out door,
+  not the stairs.
 
 LOWERCASE (looping cam): cam loop active. we are now invisible. probably
 
@@ -208,7 +210,8 @@ ENTER. MOD ONLY".
 ## 05 — Into the Server Room (cutscene)
 
 [CAM] First-person from the lead Scam, creeping down the stairs from the
-stair hall. Every step creaks. The light turns RGB: purple, then blue,
+stair hall. (If the crew came in by the walk-out, the same shot starts at
+the walk-out door.) Every step creaks. The light turns RGB: purple, then blue,
 then pink.
 
 [SFX] Heavy, slow snoring. A distant Dizcord ping.
