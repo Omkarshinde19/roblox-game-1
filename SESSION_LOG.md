@@ -453,3 +453,47 @@ room" (a candidate for the #timeout cell), all gag lines, loot values.
   NoiseService, hiding, subtitles HUD. Nothing opens in play yet.
 - Creator Store decoration models, playtest, README update for the tools.
 - Reconnect the Rojo plugin once so `ServerStorage.WorldTools` appears.
+
+## 2026-11-10 — Session 4 (cont.): Repo made public, house finished, things open
+
+**Asked:** Continue building, and make the repo public with nothing
+important left in it.
+
+**Done:**
+- **Repo audit:** no keys or passwords. Found 331 MB of third-party models
+  and reference photos (unverified licenses, Tesla branding, a FREYR
+  render) in `assets/source`.
+- **History rewritten** to drop `assets/source` (git filter-repo), then
+  force-pushed. **Every commit hash listed earlier in this log is now
+  stale.** The raw files are still on disk in `assets/source/`, which is
+  git-ignored. During the rewrite Claude's restore step deleted the on-disk
+  copy by mistake; all 40 files were restored from the local LFS store and
+  checksum-verified.
+- **Repo is public:** https://github.com/Omkarshinde19/roblox-game-1
+- Basement, attic and garage furnished (`08-furnish-basement`,
+  `09-furnish-attic-garage`). The house now has 56 openables, 80 gag
+  items, 23 loot items and 3 hiding spots.
+- Game code: `NoiseService`, `OpenableService` (hold E = quiet, tap E =
+  loud), `InspectService` (F to look), `LootService` (hold F to take, crew
+  total), `HidingService`, client `Hud` (subtitles, loot counter, noise
+  cue, hidden badge).
+- Playtest: tap-to-open, looking at an item and taking loot all work
+  ($150 from the RAM-Os box). No script errors.
+- `tools/blockout/README.md` rewritten.
+
+**Decisions (user):**
+- Strip the raw assets from the repo and history, then go public.
+- Leave the Gmail author address on the commits.
+- Flip the existing repo public (rather than a fresh repo), knowing GitHub
+  still holds the old commits and LFS files by ID until it garbage-collects.
+
+**Not tested:** the quiet hold, hiding in a wardrobe/shower, and most
+rooms by eye.
+
+**Open / next:**
+- Creator Store decoration models (the "mix" choice) aren't added yet.
+- No licence file in the public repo (all rights reserved by default).
+- Loot does nothing yet beyond the counter; no NPCs hear the noise yet.
+- Next: The Admin, Mom and the cat (behaviour trees), stage flow, then
+  the Robotaxi.
+- Save/publish the place in Studio so the furnished house is kept.
