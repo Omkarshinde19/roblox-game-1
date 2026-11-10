@@ -127,15 +127,21 @@ LOWERCASE: for deliveries. obviously
 
 ## 04 — Stage 1: Ground Floor (gameplay)
 
-**Goal:** get in, loot the ground floor, and find the basement door.
+**Goal:** get in, loot the ground floor, and find the stairs down.
 
-[PLAY] Entry points: front door (doorbell cam, which the Hacker loops),
-back slider, doggy door (one Scam crawls in and opens the slider),
-garage keypad.
+[PLAY] Entry points:
+- **Front slider** on the deck (doorbell cam, which the Hacker loops).
+- **Back door.**
+- **Doggy door** beside the back door (one Scam crawls in and unlocks the
+  back door from inside).
+- **Garage side door** (keypad, which the Hacker cracks).
+- **Basement walk-out** under the deck. **[OPEN]** Getting in here skips
+  this stage and the scene 05 stairs. See the open questions at the end.
 
 LOWERCASE (looping cam): cam loop active. we are now invisible. probably
 
-[PLAY] MOM patrols the kitchen and living room. The CAT wanders.
+[PLAY] MOM patrols the kitchen, the living room and her own room. The CAT
+wanders. (Easy mode has no Mom, only the cat.)
 
 MOM (humming, peppy): What a wonderful evening for doing laundry nobody asked me to do!
 
@@ -149,7 +155,7 @@ room, a "spare RAM" box.
 
 HYPE (picking up loot): Ooh, DDR4! It's like finding a fossil! More!
 
-[PLAY] **Dinner timer.** Every few minutes:
+[PLAY] **Dinner timer.** Every few minutes Mom walks to the stair hall:
 
 MOM (shouting down the stairs): Sweetie! DINNER!
 
@@ -159,24 +165,30 @@ ADMIN (offscreen, peppy, muffled): Coming, Mom! Great question! Five more minute
 
 MOM: Oh! Are you one of his internet friends? He doesn't have any of those.
 
-[PLAY] When Mom is distracted, the Distraction can use a fake Dizcord ping or the TV.
+[PLAY] To pull Mom away, the Distraction can use a fake Dizcord ping or
+the living-room TV.
 
 PODCAST: What's interesting about distractions is that people respond to novelty. I'll just turn the TV on.
 
-**Exit:** the basement door. A sign on it reads "DO NOT ENTER. MOD ONLY".
+**Exit:** the stair hall. A sign over the stairs down reads "DO NOT
+ENTER. MOD ONLY".
 
 ---
 
 ## 05 — Into the Server Room (cutscene)
 
-[CAM] First-person from the lead Scam, creeping down the stairs. Every
-step creaks. The light turns RGB: purple, then blue, then pink.
+[CAM] First-person from the lead Scam, creeping down the stairs from the
+stair hall. Every step creaks. The light turns RGB: purple, then blue,
+then pink.
 
 [SFX] Heavy, slow snoring. A distant Dizcord ping.
 
 [CAM] Reveal: a huge gaming chair with three monitors. THE ADMIN is
 asleep in it, a headset on and a bowl of chips on his chest. His rig
 glows behind him like a shrine.
+
+[CAM] Pan past him. An open door to the storage room and its breaker
+box. At the far end, the walk-out door, rain running down its glass.
 
 ADMIN (asleep, peppy): Mmm... thank you for being part of the community... you are now muted...
 
@@ -190,8 +202,8 @@ PARANOID (whispering): Nobody. Breathe.
 
 **Goal:** loot The Admin's rig without waking him.
 
-[PLAY] The Admin cycles: sleeping → stirring → snack run upstairs →
-back to his chair.
+[PLAY] The Admin cycles: sleeping → stirring → snack run up the stairs
+to the kitchen fridge → back to his chair.
 
 ADMIN (stirring, peppy): Snack o'clock! I love snacks. Snacks love me.
 
@@ -199,12 +211,12 @@ ADMIN (stirring, peppy): Snack o'clock! I love snacks. Snacks love me.
 
 HYPE: Lift with your legs! Lift with your compute!
 
-[PLAY] **Breaker box.** The Lookout flips it for a brownout. The Admin's
-stream cuts out.
+[PLAY] **Breaker box** in the storage room. The Lookout flips it for a
+brownout. The Admin's stream cuts out.
 
-PARANOID: Breaker's flipped. If he asks, it was the data center. Which, honestly, is believable.
+PARANOID: Breaker's flipped. If he asks, the data center drained the grid again. Which, honestly, is true most nights.
 
-ADMIN (half-awake, peppy): Huh? Power's out again? Stupid data center...
+ADMIN (half-awake, peppy): Huh? Another brownout? Stupid data center...
 
 [PLAY] **Hacker on The Admin's PC:** wipe his ban list to buy time.
 
@@ -230,8 +242,21 @@ ADMIN (GLITCHED): ...BANNED.
 
 [CAM] His headset glows red. He stands up. The chair creaks loudly.
 
-[CAM] Wide shot: the basement stairs are blocked by his bulk. The only
-way out is the attic ladder.
+[CAM] His fist comes down on a big red button on the desk: **"SERVER
+LOCKDOWN"**.
+
+[SFX] An alarm. Metal shutters slamming, one after another.
+
+[CAM] Quick cuts. A steel shutter drops over the walk-out door. Upstairs:
+the front slider, the back door, the garage. Last, a tiny shutter snaps
+over the doggy door.
+
+ADMIN (GLITCHED): Server. Locked. Nobody. Leaves.
+
+LOWERCASE: every door is on his system. except one. the attic roof window
+
+[CAM] Wide shot: The Admin fills the den. Behind the crew, the stairs up
+are still open.
 
 PARANOID: UP. GO UP. Everyone go up!
 
@@ -245,12 +270,17 @@ HYPE: RUN, PODCAST!
 
 **Goal:** grab the Golden DIMM and reach the roof window.
 
-[PLAY] The Admin climbs after the crew. He's slow on stairs but fast in
-straight lines. Two Scams hold the ladder while the others climb.
+[PLAY] Route: up the basement stairs to the stair hall, then up the
+pull-down ladder into the attic. Every other exit is shuttered.
+
+[PLAY] The Admin climbs after the crew. He's slow on the stairs and the
+ladder but fast in straight lines. Two Scams hold the ladder while the
+others climb.
 
 ADMIN (GLITCHED): You have been warned. You have been warned. You have been WARNED.
 
-[PLAY] The Golden DIMM shrine. A spotlight, and a choir sting.
+[PLAY] The Golden DIMM shrine under the steep roof. A spotlight, and a
+choir sting.
 
 [SFX] Choir: "aaaaah".
 
@@ -265,7 +295,7 @@ SCAM (in timeout, peppy): I've been banned! I'd love to appeal!
 
 [PLAY] If all Scams are in timeout → **Fail ending (F)**.
 
-[PLAY] Reach the roof window → cut to 09.
+[PLAY] Reach the roof window on the front roof slope → cut to 09.
 
 ---
 
