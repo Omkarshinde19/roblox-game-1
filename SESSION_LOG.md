@@ -415,3 +415,41 @@ the attic, the Golden DIMM and the roof-window jump; three new short
 lines (Lowercase, Podcast, Hype) and one Admin line in the chase.
 
 **Open questions:** none for the script.
+
+## 2026-11-10 — Session 4: Bigger furnished house (part 1)
+
+**Asked:** Check the updated script, start building step by step, make the
+house bigger and fill it with furniture and openable things (fridge with
+expired milk, etc.), and carry on with world building.
+
+**Done:**
+- Reviewed `story/script-draft.md` v0.2. It matches the built world.
+- Blockout scripts are now modules with a shared `Kit.luau`, mapped to
+  `ServerStorage.WorldTools` in `default.project.json` (`5da4f4c`,
+  `4cc1e4e`). Run one with
+  `require(game.ServerStorage.WorldTools["04-house"])()`.
+- New plot with a garage forecourt and yard at y 232 (`fad589f`).
+- New cabin shell, 104 x 64 studs, 14-stud ceilings (`e59b462`): basement
+  (den, spare room, storage, laundry), ground floor (living + dining, Mom's
+  room, old bedroom, bathroom, stair hall, kitchen, pantry, mud room),
+  attic, garage, deck. The basement is now carved out of the hill (the old
+  one was full of terrain). All doors are hinged/sliding models, with
+  hidden shutter markers for scene 07.
+- Furniture catalogue (`86b024d`, `bc8f304`, `5496dca`) and the ground
+  floor + deck furnished (`08bc370`): 46 openables, 52 gag items, 9 loot
+  items, 3 hiding spots, all tagged for game code.
+- `src/shared/Remotes.luau` (`cc629ad`).
+
+**Decisions (user):** house 1.5x (104 x 64); extra rooms: bathroom, dining
++ pantry, laundry, The Admin's old bedroom; props: mix of parts and store
+models; openables: gag items, hidden loot, noise, hiding spots.
+
+**Claude's choices, open to change:** room layout, the basement "spare
+room" (a candidate for the #timeout cell), all gag lines, loot values.
+
+**Not done yet (stopped at the usage limit):**
+- Furniture for the basement, attic and garage (scripts 08, 09).
+- Game code so things actually open: OpenableService, LootService,
+  NoiseService, hiding, subtitles HUD. Nothing opens in play yet.
+- Creator Store decoration models, playtest, README update for the tools.
+- Reconnect the Rojo plugin once so `ServerStorage.WorldTools` appears.
