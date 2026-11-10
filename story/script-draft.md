@@ -277,8 +277,8 @@ LOCKDOWN"**.
 
 [SFX] An alarm. Metal shutters slamming, one after another.
 
-[CAM] Quick cuts. A steel shutter drops over the walk-out door. Upstairs:
-the front slider, the back door, the garage. Last, a tiny shutter snaps
+[CAM] Quick cuts. A steel shutter drops over the walk-out door. On the
+ground floor: the front slider, the back door, the garage. Last, a tiny shutter snaps
 over the doggy door.
 
 ADMIN (GLITCHED): Server. Locked. Nobody. Leaves.
@@ -531,8 +531,6 @@ ADMIN (slowly glitching): ...Scam.
 - Every line is voiced with **Kokoro** TTS, one audio file per line. Keep
   lines short and easy to say, and keep a line list per character when
   this is final.
-- The Admin's glitched lines use the same peppy audio with distortion
-  added in Roblox.
 - Add more barks from `research/discord-mod.md` (43 Admin lines) and the
   gags in `research/sam-altman.md`.
 - Don't put real Sam Altman quotes in as dialogue. Paraphrase.
