@@ -1,212 +1,370 @@
 --!strict
--- Blockout step 4: greybox cabin (hillside walk-out) at the house plot.
--- Basement (B 234) / Ground (G 246) / Attic (A 258, ridge 274). Front faces +Z (downhill).
--- Main cabin x -34..34, z -90..-46. Garage annex x 34..62.
+-- Blockout step 4: the cabin shell (104 x 64 studs, hillside walk-out).
+-- Front faces +Z (downhill). Rebuilds Workspace.Blockout.House but keeps its
+-- "Furnishings" child, so furniture survives a shell rebuild.
+--
+--   Basement  y 232  den | spare room | stairs | storage | laundry
+--   Ground    y 246  living + dining (open) | Mom's room | old bedroom |
+--                    bathroom | stair hall | kitchen | pantry | mud room
+--   Attic     y 260  one open space under the roof (ridge y 282)
+--   Garage    x 52..92, on the east side, at ground level
+--
+-- Room bounds are documented in tools/blockout/README.md.
 
-local root = workspace:WaitForChild("Blockout")
-local old = root:FindFirstChild("House")
-if old then
-	old:Destroy()
-end
-local house = Instance.new("Model")
-house.Name = "House"
+local Kit = require(script.Parent.Kit)
 
-local B, G, A, RIDGE = 234, 246, 258, 274
-local X1, X2, Z1, Z2 = -34, 34, -90, -46
-local GX2 = 62
-local ZM, HALF, RISE = (Z1 + Z2) / 2, (Z2 - Z1) / 2, RIDGE - A
-local H = 12
-local M = Enum.Material
-local C = {
-	timber = Color3.fromRGB(120, 72, 42),
-	concrete = Color3.fromRGB(130, 130, 128),
-	floor = Color3.fromRGB(150, 110, 75),
-	glass = Color3.fromRGB(255, 190, 120),
-	roof = Color3.fromRGB(38, 40, 44),
-	stone = Color3.fromRGB(105, 105, 100),
-	inner = Color3.fromRGB(200, 195, 185),
-}
-
-local function folder(name: string): Folder
-	local f = Instance.new("Folder")
-	f.Name = name
-	f.Parent = house
-	return f
-end
-
-local function box(name: string, cf: CFrame, size: Vector3, mat: Enum.Material, col: Color3, parent: Instance, className: string?): BasePart
-	local p = Instance.new(className or "Part") :: BasePart
-	p.Name = name
-	p.Anchored = true
-	p.CFrame = cf
-	p.Size = size
-	p.Material = mat
-	p.Color = col
-	p.TopSurface = Enum.SurfaceType.Smooth
-	p.BottomSurface = Enum.SurfaceType.Smooth
-	p.Parent = parent
-	return p
-end
-
-type Gap = { c: number, w: number, b: number, t: number, glass: boolean? }
-
--- wall along "x" (fixed z) or "z" (fixed x), from s1 to s2, with door/window gaps
-local function wall(name: string, axis: string, fixed: number, s1: number, s2: number, y0: number, h: number, gaps: { Gap }, mat: Enum.Material, col: Color3, parent: Instance)
-	table.sort(gaps, function(a, b)
-		return a.c < b.c
-	end)
-	local function seg(a: number, b: number, yb: number, yt: number, m: Enum.Material, c: Color3, nm: string, glass: boolean)
-		if b - a < 0.05 or yt - yb < 0.05 then
-			return
-		end
-		local mid, len, ym = (a + b) / 2, b - a, y0 + (yb + yt) / 2
-		local cf = if axis == "x" then CFrame.new(mid, ym, fixed) else CFrame.new(fixed, ym, mid)
-		local size = if axis == "x" then Vector3.new(len, yt - yb, 1) else Vector3.new(1, yt - yb, len)
-		local p = box(nm, cf, size, m, c, parent)
-		if glass then
-			p.Transparency = 0.55
-			p.CastShadow = false
-		end
+return function()
+	local root = workspace:WaitForChild("Blockout")
+	local old = root:FindFirstChild("House")
+	local furnishings = old and old:FindFirstChild("Furnishings")
+	if furnishings then
+		furnishings.Parent = nil
 	end
-	local cur = s1
-	for _, g in gaps do
-		local a, b = g.c - g.w / 2, g.c + g.w / 2
-		seg(cur, a, 0, h, mat, col, name, false)
-		seg(a, b, 0, g.b, mat, col, name, false)
-		seg(a, b, g.t, h, mat, col, name, false)
-		if g.glass then
-			seg(a, b, g.b, g.t, M.Glass, C.glass, name .. "_Glass", true)
+	if old then
+		old:Destroy()
+	end
+
+	local house = Kit.model("House", nil)
+	house.ModelStreamingMode = Enum.ModelStreamingMode.Atomic
+
+	local B, G, A, RIDGE = 232, 246, 260, 282
+	local H = 14
+	local X1, X2, Z1, Z2 = -52, 52, -104, -40
+	local GX1, GX2, GZ1, GZ2 = 52, 92, -88, -40
+	local ZM, HALF, RISE = (Z1 + Z2) / 2, (Z2 - Z1) / 2, RIDGE - A
+	local DZ = Z2 + 20 -- front edge of the deck
+	local M = Enum.Material
+	local C = Kit.Color
+	local T = workspace.Terrain
+
+	---------------- carve the hill ----------------
+	T:FillBlock(CFrame.new(0, (B - 1 + G) / 2, ZM), Vector3.new(X2 - X1, G - B + 1, Z2 - Z1), M.Air) -- basement
+	T:FillBlock(CFrame.new(-1, (B + G) / 2 + 1, (Z2 + DZ) / 2), Vector3.new(110, G - B + 2, DZ - Z2), M.Air) -- under the deck
+	T:FillBlock(CFrame.new((GX1 + GX2) / 2, G + 6, (GZ1 + GZ2) / 2), Vector3.new(GX2 - GX1, 14, GZ2 - GZ1), M.Air) -- garage
+
+	---------------- BASEMENT ----------------
+	local bF = Kit.folder("Basement", house)
+	Kit.box(bF, "Floor", CFrame.new(0, B - 0.5, ZM), Vector3.new(X2 - X1 + 2, 1, Z2 - Z1 + 2), C.concrete, M.Concrete)
+	Kit.wall(bF, "BackWall", "x", Z1, X1 - 1, X2 + 1, B, H, {}, C.concrete, M.Concrete, 2)
+	Kit.wall(bF, "WestWall", "z", X1, Z1, Z2, B, H, {}, C.concrete, M.Concrete, 2)
+	Kit.wall(bF, "EastWall", "z", X2, Z1, Z2, B, H, {}, C.concrete, M.Concrete, 2)
+	Kit.wall(bF, "FrontWall", "x", Z2, X1 - 1, X2 + 1, B, H, {
+		{ c = -30, w = 10, b = 5, t = 9, glass = true },
+		{ c = 6, w = 6, b = 0, t = 9 }, -- walk-out door
+		{ c = 34, w = 8, b = 6, t = 9.5, glass = true },
+	}, C.concrete, M.Concrete, 2)
+	Kit.wall(bF, "DenBackWall", "x", -76, X1, X2, B, H, {
+		{ c = -30, w = 5.5, b = 0, t = 9 }, -- spare room
+		{ c = -5.5, w = 7, b = 0, t = 12.5 }, -- stairs arrive here
+		{ c = 32, w = 5.5, b = 0, t = 9 }, -- storage <-> laundry
+	}, C.inner, M.Concrete)
+	Kit.wall(bF, "DenStorageWall", "z", 12, -76, Z2, B, H, { { c = -58, w = 5.5, b = 0, t = 9 } }, C.inner, M.Concrete)
+	Kit.wall(bF, "StairWallWest", "z", -9.5, Z1, -76, B, H, {}, C.inner, M.Concrete)
+	Kit.wall(bF, "StairWallEast", "z", -1.5, Z1, -76, B, H, {}, C.inner, M.Concrete)
+
+	local function door(
+		parent: Instance,
+		name: string,
+		axis: string,
+		fixed: number,
+		c: number,
+		y: number,
+		hinge: number,
+		swing: number,
+		display: string?,
+		glass: boolean?,
+		w: number?
+	)
+		return Kit.door(parent, {
+			name = name,
+			axis = axis,
+			fixed = fixed,
+			c = c,
+			y = y,
+			w = w or 5.5,
+			h = 9,
+			hinge = hinge,
+			swing = swing,
+			col = if glass then C.glassWarm else C.darkWood,
+			glass = glass,
+			display = display,
+		})
+	end
+	door(bF, "Door_WalkOut", "x", Z2, 6, B, 1, -1, "Walk-out door", true, 6)
+	door(bF, "Door_SpareRoom", "x", -76, -30, B, -1, -1)
+	door(bF, "Door_Laundry", "x", -76, 32, B, 1, -1, "Laundry door")
+	door(bF, "Door_Storage", "z", 12, -58, B, -1, 1, "Storage door")
+	Kit.shutter(bF, "Shutter_WalkOut", CFrame.new(6, B + 4.5, Z2 + 1.3), Vector3.new(6.4, 9, 0.4))
+
+	---------------- GROUND FLOOR ----------------
+	local gF = Kit.folder("GroundFloor", house)
+	-- slab with the stairwell hole at x -9..-2, z -99..-75
+	Kit.box(gF, "Floor", CFrame.new((X1 - 9) / 2, G - 0.5, ZM), Vector3.new(-9 - X1, 1, Z2 - Z1), C.floor, M.WoodPlanks)
+	Kit.box(gF, "Floor", CFrame.new((-2 + X2) / 2, G - 0.5, ZM), Vector3.new(X2 + 2, 1, Z2 - Z1), C.floor, M.WoodPlanks)
+	Kit.box(gF, "Floor", CFrame.new(-5.5, G - 0.5, (Z1 - 99) / 2), Vector3.new(7, 1, 5), C.floor, M.WoodPlanks)
+	Kit.box(gF, "Floor", CFrame.new(-5.5, G - 0.5, (-75 + Z2) / 2), Vector3.new(7, 1, 35), C.floor, M.WoodPlanks)
+
+	Kit.wall(gF, "FrontWall", "x", Z2, X1, X2, G, H, {
+		{ c = -28, w = 40, b = 0.5, t = 12, glass = true }, -- living room glass
+		{ c = 0, w = 8, b = 0, t = 10 }, -- front slider
+		{ c = 16, w = 20, b = 0.5, t = 12, glass = true }, -- dining glass
+		{ c = 40, w = 12, b = 3.5, t = 10, glass = true }, -- Mom's window
+	}, C.timber, M.WoodPlanks, 1.5)
+	Kit.wall(gF, "BackWall", "x", Z1, X1, X2, G, H, {
+		{ c = -39, w = 10, b = 4, t = 10, glass = true }, -- old bedroom
+		{ c = -18, w = 5, b = 6.5, t = 10, glass = true }, -- bathroom
+		{ c = 14, w = 5.5, b = 0, t = 9 }, -- back door
+		{ c = 20, w = 2.4, b = 0, t = 2.4 }, -- doggy door
+		{ c = 28, w = 10, b = 4.5, t = 10, glass = true }, -- kitchen
+	}, C.timber, M.WoodPlanks, 1.5)
+	Kit.wall(gF, "WestWall", "z", X1, Z1, Z2, G, H, {
+		{ c = -88, w = 8, b = 4, t = 10, glass = true },
+		{ c = -56, w = 14, b = 2, t = 11, glass = true },
+	}, C.timber, M.WoodPlanks, 1.5)
+	Kit.wall(gF, "EastWall", "z", X2, Z1, Z2, G, H, { { c = -80, w = 5.5, b = 0, t = 9 } }, C.timber, M.WoodPlanks, 1.5)
+
+	Kit.wall(gF, "MidWall", "x", -72, X1, X2, G, H, {
+		{ c = -34, w = 5.5, b = 0, t = 9 }, -- old bedroom
+		{ c = -18, w = 5, b = 0, t = 9 }, -- bathroom
+		{ c = 3, w = 9, b = 0, t = 11 }, -- stair hall arch
+		{ c = 20, w = 14, b = 0, t = 11 }, -- kitchen arch
+	}, C.inner)
+	Kit.wall(gF, "BedroomBathWall", "z", -26, Z1, -72, G, H, {}, C.inner)
+	Kit.wall(gF, "BathHallWall", "z", -10, Z1, -72, G, H, {}, C.inner)
+	Kit.wall(gF, "HallKitchenWall", "z", 8, Z1, -72, G, H, { { c = -80, w = 6, b = 0, t = 10 } }, C.inner)
+	Kit.wall(gF, "KitchenPantryWall", "z", 36, Z1, -72, G, H, {
+		{ c = -96, w = 5, b = 0, t = 9 }, -- pantry
+		{ c = -80, w = 5.5, b = 0, t = 9 }, -- mud room
+	}, C.inner)
+	Kit.wall(gF, "PantryMudWall", "x", -88, 36, X2, G, H, {}, C.inner)
+	Kit.wall(gF, "MomRoomWall", "z", 28, -72, Z2, G, H, { { c = -62, w = 5.5, b = 0, t = 9 } }, C.inner)
+
+	door(gF, "Door_Back", "x", Z1, 14, G, -1, 1, "Back door")
+	door(gF, "Door_GarageInner", "z", X2, -80, G, -1, -1, "Garage door")
+	door(gF, "Door_OldBedroom", "x", -72, -34, G, -1, -1)
+	door(gF, "Door_Bathroom", "x", -72, -18, G, 1, -1, "Bathroom door", false, 5)
+	door(gF, "Door_Pantry", "z", 36, -96, G, -1, 1, "Pantry door", false, 5)
+	door(gF, "Door_MudRoom", "z", 36, -80, G, 1, 1)
+	door(gF, "Door_MomRoom", "z", 28, -62, G, 1, 1, "Mom's door")
+
+	-- front slider (slides east, behind the dining glass)
+	local slider, sliderMoving =
+		Kit.sliding(gF, "Door_FrontSlider", CFrame.new(0, G, Z2 - 0.5), Vector3.new(7.8, 0, 0), "Front slider")
+	local pane =
+		Kit.box(sliderMoving, "Panel", CFrame.new(0, G + 5, Z2 - 0.5), Vector3.new(7.8, 9.8, 0.3), C.glassWarm, M.Glass)
+	pane.Transparency = 0.5
+	Kit.box(sliderMoving, "Handle", CFrame.new(-3.2, G + 4, Z2 - 0.5), Vector3.new(0.5, 1.6, 0.7), C.steel, M.Metal)
+	slider:SetAttribute("Entry", true)
+
+	-- doggy door flap (hinged at the top)
+	local _, flapMoving = Kit.hinged(gF, "Door_Doggy", CFrame.new(20, G + 2.4, Z1), 80, "Doggy door", "X")
+	Kit.box(flapMoving, "Handle", CFrame.new(20, G + 1.2, Z1), Vector3.new(2.2, 2.2, 0.2), C.black, M.Fabric)
+
+	Kit.shutter(gF, "Shutter_FrontSlider", CFrame.new(0, G + 5, Z2 + 1.1), Vector3.new(8.4, 10, 0.4))
+	Kit.shutter(gF, "Shutter_Back", CFrame.new(14, G + 4.5, Z1 - 1.1), Vector3.new(6, 9, 0.4))
+	Kit.shutter(gF, "Shutter_Doggy", CFrame.new(20, G + 1.2, Z1 - 1.1), Vector3.new(2.8, 2.4, 0.4))
+	local cam = Kit.box(
+		gF,
+		"Marker_DoorbellCam",
+		CFrame.new(5.2, G + 8, Z2 + 0.9),
+		Vector3.new(0.8, 1.2, 0.4),
+		C.black,
+		M.Metal
+	)
+	cam:SetAttribute("DoorbellCam", true)
+
+	---------------- STAIRS: ground <-> basement ----------------
+	local sF = Kit.folder("Stairs", house)
+	for k = 1, 13 do
+		Kit.box(
+			sF,
+			"Step",
+			CFrame.new(-5.5, G - k - 0.5, -99 + (k - 0.5) * 1.75),
+			Vector3.new(7, 1, 1.8),
+			C.floor,
+			M.WoodPlanks
+		)
+	end
+	Kit.box(sF, "Railing", CFrame.new(-2, G + 1.75, -87), Vector3.new(0.4, 3.5, 24), C.darkWood, M.Wood)
+	Kit.box(sF, "Railing", CFrame.new(-5.5, G + 1.75, -75), Vector3.new(7, 3.5, 0.4), C.darkWood, M.Wood)
+	local sign = Kit.box(sF, "Sign_ModOnly", CFrame.new(-5.5, G + 10.5, -103), Vector3.new(7, 2, 0.2), C.black)
+	Kit.sign(sign, Enum.NormalId.Back, "DO NOT ENTER. MOD ONLY", C.red)
+
+	---------------- ATTIC ----------------
+	local aF = Kit.folder("Attic", house)
+	-- slab with the ladder hatch at x 3..8, z -90..-84
+	Kit.box(aF, "Floor", CFrame.new((X1 + 3) / 2, A - 0.5, ZM), Vector3.new(3 - X1, 1, Z2 - Z1), C.floor, M.WoodPlanks)
+	Kit.box(aF, "Floor", CFrame.new((8 + X2) / 2, A - 0.5, ZM), Vector3.new(X2 - 8, 1, Z2 - Z1), C.floor, M.WoodPlanks)
+	Kit.box(aF, "Floor", CFrame.new(5.5, A - 0.5, (Z1 - 90) / 2), Vector3.new(5, 1, 14), C.floor, M.WoodPlanks)
+	Kit.box(aF, "Floor", CFrame.new(5.5, A - 0.5, (-84 + Z2) / 2), Vector3.new(5, 1, 44), C.floor, M.WoodPlanks)
+	local ladder = Kit.box(
+		aF,
+		"AtticLadder",
+		CFrame.new(6.5, (G + A) / 2, -87),
+		Vector3.new(2, A - G, 2),
+		C.wood,
+		M.Wood,
+		"TrussPart"
+	)
+	ladder:SetAttribute("Climbable", true)
+	for _, x in { X1, X2 } do
+		Kit.box(
+			aF,
+			"Gable",
+			CFrame.new(x, A + RISE / 2, ZM + HALF / 2) * CFrame.Angles(0, math.pi, 0),
+			Vector3.new(1.5, RISE, HALF),
+			C.timber,
+			M.WoodPlanks,
+			"WedgePart"
+		)
+		Kit.box(
+			aF,
+			"Gable",
+			CFrame.new(x, A + RISE / 2, ZM - HALF / 2),
+			Vector3.new(1.5, RISE, HALF),
+			C.timber,
+			M.WoodPlanks,
+			"WedgePart"
+		)
+	end
+
+	---------------- ROOF: dark metal gable, escape window on the front slope ----------------
+	local rF = Kit.folder("Roof", house)
+	local slopeLen = math.sqrt(HALF ^ 2 + RISE ^ 2) + 2
+	local ang = math.atan2(RISE, HALF)
+	local function slabCF(front: boolean, xc: number, s0: number, s1: number): CFrame
+		local sm = (s0 + s1) / 2 - 2
+		local dz, dy = math.cos(ang) * sm, math.sin(ang) * sm
+		if front then
+			return CFrame.new(xc, A + dy + 0.6, Z2 - dz) * CFrame.Angles(ang, 0, 0)
 		end
-		cur = b
+		return CFrame.new(xc, A + dy + 0.6, Z1 + dz) * CFrame.Angles(-ang, 0, 0)
 	end
-	seg(cur, s2, 0, h, mat, col, name, false)
-end
-
----------------- BASEMENT: den (west) | storage + laundry (east) ----------------
-local bF = folder("Basement")
-box("Floor", CFrame.new(0, B - 0.5, ZM), Vector3.new(X2 - X1, 1, Z2 - Z1), M.Concrete, C.concrete, bF)
-wall("BackWall", "x", Z1, X1, X2, B, H, {}, M.Concrete, C.concrete, bF)
-wall("WestWall", "z", X1, Z1, Z2, B, H, {}, M.Concrete, C.concrete, bF)
-wall("EastWall", "z", X2, Z1, Z2, B, H, {}, M.Concrete, C.concrete, bF)
-wall("FrontWall", "x", Z2, X1, X2, B, H, {
-	{ c = -18, w = 8, b = 4, t = 8, glass = true },
-	{ c = 14, w = 6, b = 0, t = 8 }, -- walk-out door
-	{ c = 26, w = 6, b = 4, t = 8, glass = true },
-}, M.Concrete, C.concrete, bF)
-wall("DenStorageDivider", "z", 10, Z1, Z2, B, H, { { c = -60, w = 6, b = 0, t = 8 } }, M.Concrete, C.inner, bF)
-box("Marker_DenRig", CFrame.new(-22, B + 2, -84), Vector3.new(10, 4, 4), M.Neon, Color3.fromRGB(170, 60, 255), bF)
-box("Marker_AdminChair", CFrame.new(-22, B + 2, -76), Vector3.new(4, 4, 4), M.Fabric, Color3.fromRGB(40, 40, 40), bF)
-box("Marker_BreakerBox", CFrame.new(X2 - 1.5, B + 5, -84), Vector3.new(1, 3, 2), M.Metal, Color3.fromRGB(90, 90, 90), bF)
-
----------------- GROUND FLOOR: kitchen | living | Mom's room | stair hall | garage ----------------
-local gF = folder("GroundFloor")
--- floor with a stairwell opening at x -4..4, z -88..-68
-box("Floor_W", CFrame.new((X1 - 4) / 2, G - 0.5, ZM), Vector3.new(-4 - X1, 1, Z2 - Z1), M.WoodPlanks, C.floor, gF)
-box("Floor_E", CFrame.new((4 + X2) / 2, G - 0.5, ZM), Vector3.new(X2 - 4, 1, Z2 - Z1), M.WoodPlanks, C.floor, gF)
-box("Floor_N", CFrame.new(0, G - 0.5, (-68 + Z2) / 2), Vector3.new(8, 1, Z2 + 68), M.WoodPlanks, C.floor, gF)
-box("Floor_S", CFrame.new(0, G - 0.5, (Z1 - 88) / 2), Vector3.new(8, 1, 2), M.WoodPlanks, C.floor, gF)
-box("GarageFloor", CFrame.new((X2 + GX2) / 2, G - 0.5, ZM), Vector3.new(GX2 - X2, 1, Z2 - Z1), M.Concrete, C.concrete, gF)
-wall("FrontWall", "x", Z2, X1, X2, G, H, {
-	{ c = -16, w = 24, b = 0.5, t = 11, glass = true },
-	{ c = 4, w = 8, b = 0, t = 10 }, -- front slider
-	{ c = 20, w = 20, b = 0.5, t = 11, glass = true },
-}, M.WoodPlanks, C.timber, gF)
-wall("BackWall", "x", Z1, X1, X2, G, H, {
-	{ c = -24, w = 8, b = 4, t = 9, glass = true }, -- kitchen window
-	{ c = -12, w = 6, b = 0, t = 8 }, -- back door
-	{ c = -6, w = 2, b = 0, t = 2 }, -- doggy door
-}, M.WoodPlanks, C.timber, gF)
-wall("WestWall", "z", X1, Z1, Z2, G, H, { { c = -68, w = 6, b = 4, t = 9, glass = true } }, M.WoodPlanks, C.timber, gF)
-wall("CabinGarageWall", "z", X2, Z1, Z2, G, H, { { c = -80, w = 5, b = 0, t = 8 } }, M.WoodPlanks, C.inner, gF)
-wall("GarageFront", "x", Z2, X2, GX2, G, 11, { { c = 48, w = 18, b = 0, t = 9 } }, M.WoodPlanks, C.timber, gF)
-wall("GarageBack", "x", Z1, X2, GX2, G, 11, {}, M.WoodPlanks, C.timber, gF)
-wall("GarageEast", "z", GX2, Z1, Z2, G, 11, { { c = -75, w = 5, b = 0, t = 8 } }, M.WoodPlanks, C.timber, gF)
-box("GarageRoof", CFrame.new((X2 + GX2) / 2, G + 11.5, ZM), Vector3.new(GX2 - X2 + 2, 1, Z2 - Z1 + 2), M.Metal, C.roof, gF)
-box("GarageDoorPanel", CFrame.new(48, G + 4.5, Z2), Vector3.new(18, 9, 0.6), M.Metal, Color3.fromRGB(60, 60, 62), gF)
-wall("KitchenLivingDivider", "x", -66, X1, -6, G, H, { { c = -20, w = 8, b = 0, t = 9 } }, M.SmoothPlastic, C.inner, gF)
-wall("MomRoomWall", "x", -66, 10, X2, G, H, { { c = 22, w = 5, b = 0, t = 8 } }, M.SmoothPlastic, C.inner, gF)
-wall("StairHallWest", "z", -6, Z1, -66, G, H, { { c = -78, w = 5, b = 0, t = 8 } }, M.SmoothPlastic, C.inner, gF)
-wall("StairHallEast", "z", 10, Z1, -66, G, H, { { c = -78, w = 5, b = 0, t = 8 } }, M.SmoothPlastic, C.inner, gF)
-box("Marker_Fridge", CFrame.new(-31, G + 3.5, -86), Vector3.new(4, 7, 4), M.Metal, Color3.fromRGB(220, 220, 220), gF)
-
-local sF = folder("Stairs")
-for i = 0, 11 do
-	box("Step" .. i, CFrame.new(0, B + 0.5 + i, -69.5 - i * 1.5), Vector3.new(7, 1, 1.6), M.WoodPlanks, C.floor, sF)
-end
-
----------------- ATTIC: floor with hatch, Golden DIMM shrine, gables ----------------
-local aF = folder("Attic")
-local hx1, hx2, hz1, hz2 = 0, 6, -62, -56
-box("Floor_W", CFrame.new((X1 + hx1) / 2, A - 0.5, ZM), Vector3.new(hx1 - X1, 1, Z2 - Z1), M.WoodPlanks, C.floor, aF)
-box("Floor_E", CFrame.new((hx2 + X2) / 2, A - 0.5, ZM), Vector3.new(X2 - hx2, 1, Z2 - Z1), M.WoodPlanks, C.floor, aF)
-box("Floor_N", CFrame.new((hx1 + hx2) / 2, A - 0.5, (hz2 + Z2) / 2), Vector3.new(hx2 - hx1, 1, Z2 - hz2), M.WoodPlanks, C.floor, aF)
-box("Floor_S", CFrame.new((hx1 + hx2) / 2, A - 0.5, (Z1 + hz1) / 2), Vector3.new(hx2 - hx1, 1, hz1 - Z1), M.WoodPlanks, C.floor, aF)
-local ladder = box("PullDownLadder", CFrame.new(3, (G + A) / 2, -59) * CFrame.Angles(math.rad(-20), 0, 0), Vector3.new(3, 13, 0.6), M.Wood, Color3.fromRGB(160, 120, 80), aF)
-ladder:SetAttribute("Climbable", true)
-local truss = box("LadderClimb", CFrame.new(3, (G + A) / 2, -57.5), Vector3.new(2, 12, 2), M.Plastic, C.inner, aF, "TrussPart")
-truss.Transparency = 1
-box("Marker_GoldenDIMMShrine", CFrame.new(X1 + 4, A + 2.5, ZM), Vector3.new(3, 5, 8), M.Neon, Color3.fromRGB(255, 200, 60), aF)
-for _, x in { X1, X2 } do
-	box("Gable_Front", CFrame.new(x, A + RISE / 2, ZM + HALF / 2) * CFrame.Angles(0, math.pi, 0), Vector3.new(1, RISE, HALF), M.WoodPlanks, C.timber, aF, "WedgePart")
-	box("Gable_Back", CFrame.new(x, A + RISE / 2, ZM - HALF / 2), Vector3.new(1, RISE, HALF), M.WoodPlanks, C.timber, aF, "WedgePart")
-end
-
----------------- ROOF: dark metal gable, escape window on the front slope ----------------
-local rF = folder("Roof")
-local slopeLen = math.sqrt(HALF ^ 2 + RISE ^ 2) + 2
-local ang = math.atan2(RISE, HALF)
-local function slabCF(front: boolean, xc: number, s0: number, s1: number): CFrame
-	local sm = (s0 + s1) / 2 - 2
-	local dz, dy = math.cos(ang) * sm, math.sin(ang) * sm
-	if front then
-		return CFrame.new(xc, A + dy + 0.6, Z2 - dz) * CFrame.Angles(ang, 0, 0)
+	local xa, xb = X1 - 2, X2 + 2
+	local wx1, wx2, ws1, ws2 = 34, 44, 10, 18
+	local function slab(name: string, front: boolean, x1: number, x2: number, s0: number, s1: number)
+		Kit.box(
+			rF,
+			name,
+			slabCF(front, (x1 + x2) / 2, s0, s1),
+			Vector3.new(x2 - x1, 1, s1 - s0),
+			C.roof,
+			M.CorrodedMetal
+		)
 	end
-	return CFrame.new(xc, A + dy + 0.6, Z1 + dz) * CFrame.Angles(-ang, 0, 0)
-end
-local xa, xb = X1 - 2, X2 + 2
-local wx1, wx2, ws1, ws2 = 16, 24, 11, 17
-box("BackSlope", slabCF(false, 0, 0, slopeLen), Vector3.new(xb - xa, 1, slopeLen), M.CorrodedMetal, C.roof, rF)
-box("FrontSlope_W", slabCF(true, (xa + wx1) / 2, 0, slopeLen), Vector3.new(wx1 - xa, 1, slopeLen), M.CorrodedMetal, C.roof, rF)
-box("FrontSlope_E", slabCF(true, (wx2 + xb) / 2, 0, slopeLen), Vector3.new(xb - wx2, 1, slopeLen), M.CorrodedMetal, C.roof, rF)
-box("FrontSlope_Low", slabCF(true, (wx1 + wx2) / 2, 0, ws1), Vector3.new(wx2 - wx1, 1, ws1), M.CorrodedMetal, C.roof, rF)
-box("FrontSlope_High", slabCF(true, (wx1 + wx2) / 2, ws2, slopeLen), Vector3.new(wx2 - wx1, 1, slopeLen - ws2), M.CorrodedMetal, C.roof, rF)
-local win = box("RoofWindow_Escape", slabCF(true, (wx1 + wx2) / 2, ws1, ws2), Vector3.new(wx2 - wx1, 0.4, ws2 - ws1), M.Glass, Color3.fromRGB(180, 210, 230), rF)
-win.Transparency = 0.6
-win.CanCollide = false
-win:SetAttribute("EscapeExit", true)
+	slab("BackSlope", false, xa, xb, 0, slopeLen)
+	slab("FrontSlope", true, xa, wx1, 0, slopeLen)
+	slab("FrontSlope", true, wx2, xb, 0, slopeLen)
+	slab("FrontSlope", true, wx1, wx2, 0, ws1)
+	slab("FrontSlope", true, wx1, wx2, ws2, slopeLen)
+	local win = Kit.box(
+		rF,
+		"RoofWindow_Escape",
+		slabCF(true, (wx1 + wx2) / 2, ws1, ws2),
+		Vector3.new(wx2 - wx1, 0.4, ws2 - ws1),
+		Color3.fromRGB(180, 210, 230),
+		M.Glass
+	)
+	win.Transparency = 0.6
+	win.CanCollide = false
+	win:SetAttribute("EscapeExit", true)
 
----------------- DECK on a stone retaining wall (gap for the basement walk-out) ----------------
-local dF = folder("Deck")
-local DZ = Z2 + 16
-local wallY = (B + G - 1) / 2 - 1
-box("DeckBoards", CFrame.new((X1 - 4 + X2) / 2, G - 0.5, (Z2 + DZ) / 2), Vector3.new(X2 - X1 + 4, 1, DZ - Z2), M.WoodPlanks, Color3.fromRGB(170, 110, 60), dF)
-box("StoneWall_W", CFrame.new((X1 - 4 + 8) / 2, wallY, DZ - 1.5), Vector3.new(8 - (X1 - 4), G - B + 1, 3), M.Slate, C.stone, dF)
-box("StoneWall_E", CFrame.new((20 + X2) / 2, wallY, DZ - 1.5), Vector3.new(X2 - 20, G - B + 1, 3), M.Slate, C.stone, dF)
-box("StoneWall_Lintel", CFrame.new(14, G - 2.5, DZ - 1.5), Vector3.new(12, 3, 3), M.Slate, C.stone, dF)
-box("StoneWall_W_Side", CFrame.new(X1 - 5.5, wallY, (Z2 + DZ) / 2), Vector3.new(3, G - B + 1, DZ - Z2), M.Slate, C.stone, dF)
+	---------------- GARAGE ----------------
+	local gaF = Kit.folder("Garage", house)
+	local gxm, gzm = (GX1 + GX2) / 2, (GZ1 + GZ2) / 2
+	Kit.box(gaF, "Floor", CFrame.new(gxm, G - 0.5, gzm), Vector3.new(GX2 - GX1, 1, GZ2 - GZ1), C.concrete, M.Concrete)
+	Kit.wall(
+		gaF,
+		"FrontWall",
+		"x",
+		GZ2,
+		GX1,
+		GX2,
+		G,
+		H,
+		{ { c = 72, w = 24, b = 0, t = 10 } },
+		C.timber,
+		M.WoodPlanks,
+		1.5
+	)
+	Kit.wall(gaF, "BackWall", "x", GZ1, GX1, GX2, G, H, {}, C.timber, M.WoodPlanks, 1.5)
+	Kit.wall(
+		gaF,
+		"EastWall",
+		"z",
+		GX2,
+		GZ1,
+		GZ2,
+		G,
+		H,
+		{ { c = -78, w = 5.5, b = 0, t = 9 } },
+		C.timber,
+		M.WoodPlanks,
+		1.5
+	)
+	Kit.box(
+		gaF,
+		"Roof",
+		CFrame.new(gxm, G + H + 0.5, gzm),
+		Vector3.new(GX2 - GX1 + 2, 1, GZ2 - GZ1 + 2),
+		C.roof,
+		M.Metal
+	)
+	local garageDoor = Kit.box(
+		gaF,
+		"GarageDoor",
+		CFrame.new(72, G + 5, GZ2),
+		Vector3.new(24, 10, 0.6),
+		Color3.fromRGB(60, 60, 62),
+		M.Metal
+	)
+	garageDoor:SetAttribute("GarageDoor", true)
+	door(gaF, "Door_GarageSide", "z", GX2, -78, G, 1, -1, "Garage side door")
+	local keypad =
+		Kit.box(gaF, "Marker_Keypad", CFrame.new(GX2 + 0.9, G + 4.5, -73.5), Vector3.new(0.3, 1.4, 1), C.black, M.Metal)
+	keypad:SetAttribute("Keypad", true)
+	Kit.shutter(gaF, "Shutter_GarageSide", CFrame.new(GX2 + 1.1, G + 4.5, -78), Vector3.new(0.4, 9, 6))
+	Kit.shutter(gaF, "Shutter_Garage", CFrame.new(72, G + 5, GZ2 + 1.1), Vector3.new(24.4, 10, 0.4))
 
----------------- blockout lights ----------------
-local function light(name: string, pos: Vector3, col: Color3, range: number, brightness: number, shadows: boolean)
-	local p = box(name, CFrame.new(pos), Vector3.one, M.Plastic, col, house)
-	p.CanCollide = false
-	p.CanQuery = false
-	p.Transparency = 1
-	local l = Instance.new("PointLight")
-	l.Color = col
-	l.Range = range
-	l.Brightness = brightness
-	l.Shadows = shadows
-	l.Parent = p
-end
-light("Light_Living", Vector3.new(-10, 255, -56), Color3.fromRGB(255, 190, 130), 30, 2, true)
-light("Light_Living2", Vector3.new(18, 255, -56), Color3.fromRGB(255, 190, 130), 30, 2, true)
-light("Light_Kitchen", Vector3.new(-22, 255, -80), Color3.fromRGB(255, 200, 150), 22, 1.5, false)
-light("Light_DenRGB", Vector3.new(-14, 242, -76), Color3.fromRGB(170, 60, 255), 28, 3, true)
+	---------------- DECK on a stone retaining wall (gap at x 2..10 for the walk-out) ----------------
+	local dF = Kit.folder("Deck", house)
+	local wallH = G - 1 - B
+	local wallY = B + wallH / 2
+	Kit.box(
+		dF,
+		"DeckBoards",
+		CFrame.new(0, G - 0.5, (Z2 + DZ) / 2),
+		Vector3.new(112, 1, DZ - Z2),
+		Color3.fromRGB(170, 110, 60),
+		M.WoodPlanks
+	)
+	Kit.box(dF, "StoneWall", CFrame.new(-27, wallY, DZ - 1.5), Vector3.new(58, wallH, 3), C.stone, M.Slate)
+	Kit.box(dF, "StoneWall", CFrame.new(33, wallY, DZ - 1.5), Vector3.new(46, wallH, 3), C.stone, M.Slate)
+	Kit.box(dF, "StoneWall", CFrame.new(6, G - 2.5, DZ - 1.5), Vector3.new(8, 3, 3), C.stone, M.Slate)
+	Kit.box(dF, "StoneWall", CFrame.new(-57.5, wallY, (Z2 + DZ) / 2), Vector3.new(3, wallH, DZ - Z2), C.stone, M.Slate)
 
-house.Parent = root
-local spawn = workspace:FindFirstChildOfClass("SpawnLocation")
-if spawn then
-	spawn.CFrame = CFrame.new(14, B + 0.6, 0)
-	spawn.Size = Vector3.new(6, 1, 6)
+	---------------- room lights (only four cast shadows) ----------------
+	local lF = Kit.folder("Lights", house)
+	local warm, cold = Color3.fromRGB(255, 190, 130), Color3.fromRGB(190, 210, 255)
+	Kit.light(lF, "Living", Vector3.new(-28, G + 12, -56), warm, 44, 2, true)
+	Kit.light(lF, "Dining", Vector3.new(12, G + 12, -56), warm, 36, 2, true)
+	Kit.light(lF, "Kitchen", Vector3.new(22, G + 12, -88), warm, 34, 1.6, true)
+	Kit.light(lF, "StairHall", Vector3.new(3, G + 12, -88), warm, 24, 1)
+	Kit.light(lF, "OldBedroom", Vector3.new(-39, G + 12, -88), cold, 28, 0.6)
+	Kit.light(lF, "Bathroom", Vector3.new(-18, G + 12, -88), cold, 22, 1)
+	Kit.light(lF, "MomRoom", Vector3.new(40, G + 12, -56), warm, 30, 1.2)
+	Kit.light(lF, "MudRoom", Vector3.new(44, G + 12, -80), warm, 18, 0.8)
+	Kit.light(lF, "Pantry", Vector3.new(44, G + 12, -96), warm, 18, 0.8)
+	Kit.light(lF, "DenRGB", Vector3.new(-30, B + 10, -58), C.purple, 46, 3, true)
+	Kit.light(lF, "Storage", Vector3.new(32, B + 12, -58), cold, 30, 0.7)
+	Kit.light(lF, "Laundry", Vector3.new(25, B + 12, -90), cold, 34, 0.9)
+	Kit.light(lF, "SpareRoom", Vector3.new(-30, B + 12, -90), cold, 28, 0.4)
+	Kit.light(lF, "Attic", Vector3.new(0, A + 14, ZM), warm, 50, 0.5)
+	Kit.light(lF, "Garage", Vector3.new(72, G + 12, -64), cold, 40, 0.9)
+
+	if furnishings then
+		furnishings.Parent = house
+	end
+	house.Parent = root
+	print(`[blockout] house shell: {#house:GetDescendants()} instances`)
 end
-print(`[blockout] house: {#house:GetDescendants()} instances`)
