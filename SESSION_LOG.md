@@ -394,3 +394,24 @@ give it conflicting orders; a tiny shutter on the doggy door.
 2. What passengers do during the chase.
 3. Whether any shutter can be reopened in Stage 3.
 4. Who briefs the crew in scene 02.
+
+## 2026-11-10 — Session 4 (cont.): v0.2 open questions answered
+
+**Asked:** Ask the four open script questions.
+
+**Decisions (user):**
+- Basement walk-out: **open, hardest entry**.
+- Chase passengers: **throw energy drinks, and can throw loot** for a
+  bigger slowdown at the cost of score.
+- Shutters: the **Hacker can reopen one door**.
+- Briefing: the **hologram of the original Scam** stays.
+
+**Done:** written into the script (scenes 04–05, 08–09, 10) and the
+story bible. See the commits after `e618481`.
+
+**Claude's choices, open to change:** entering by the walk-out makes
+scene 05 start at the walk-out door; leaving by the Hacker's door skips
+the attic, the Golden DIMM and the roof-window jump; three new short
+lines (Lowercase, Podcast, Hype) and one Admin line in the chase.
+
+**Open questions:** none for the script.
