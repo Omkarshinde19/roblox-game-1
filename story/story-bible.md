@@ -8,12 +8,12 @@ user (see `SESSION_LOG.md`). Anything not decided yet is under
 
 ## Pitch
 
-It's the middle of the RAMpocalypse. AI data centers have bought up the
+It's the year 2221, the middle of the RAMpocalypse. AI data centers have bought up the
 world's memory, and a stick of RAM costs more than rent. After saying on a
 podcast that it's "terrible" for regular people to own RAM, **Scam Altman**
 takes matters into his own hands. He and up to three more Scams break into
 the home of **The Admin**, a Discord moderator whose basement rig holds the
-best GPUs in Texas, and steal the chips "for the data center".
+best GPUs left in Appalachia, and steal the chips "for the data center".
 
 ## Pillars
 
@@ -107,16 +107,16 @@ One file per scene goes in `scenes/` as `NN-short-name.md`.
 
 | #  | Scene                   | Type                   | Summary                                                                                                                                                                                                 |
 | -- | ----------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 01 | The Shortage            | Cutscene               | Fake news report: RAM costs more than rent. A clip from a parody podcast of Scam saying people owning RAM is "terrible". Smash cut to Scam staring at a GPU.                                            |
+| 01 | The Shortage            | Cutscene               | A 2221 hologram news report: RAM costs more than rent. A clip from a hologram podcast of Scam saying people owning RAM is "terrible". Smash cut to Scam staring at a GPU.                                            |
 | 02 | ClosedAI Briefing       | Cutscene + role pick   | Slideshow of the target, The Admin ("online 24/7") and the house. Players pick roles, and each Scam personality gets an intro line.                                                                     |
-| 03 | Arrival                 | Cutscene               | The Robotaxi pulls into the cul-de-sac at night with data-center cranes behind it. Title card.                                                                                                          |
+| 03 | Arrival                 | Cutscene               | Factory glow reveal: the ClosedAI hall glows through the trees, the camera pans across the foggy valley to the lit cabin, and the Robotaxi pulls in. Title card.                                                                                                          |
 | 04 | Stage 1 — Ground Floor | Gameplay               | Get in, avoid Mom and the cat, loot the garage and living room, find the way down.                                                                                                                      |
 | 05 | Into the Server Room    | Cutscene               | Creeping down the stairs: RGB glow, snoring. First look at The Admin asleep in his chair.                                                                                                               |
 | 06 | Stage 2 — Basement     | Gameplay               | Distract The Admin and grab his rig. The 2-person GPU carry. The breaker brownout.                                                                                                                      |
-| 07 | He Wakes                | Cutscene               | Jump scare. The Admin's peppy voice glitches into the distorted one. Only way out is up.                                                                                                                |
+| 07 | He Wakes                | Cutscene               | Jump scare. The Admin's peppy voice glitches into the distorted one. He triggers a server lockdown, so the only way out is up.                                                                                                                |
 | 08 | Stage 3 — Attic        | Gameplay (chase)       | The Admin hunts upward. Grab the Golden DIMM and reach the roof window.                                                                                                                                 |
 | 09 | The Window              | Cutscene               | The crew jumps off the roof into the waiting Robotaxi. The Admin squeezes onto his moped.                                                                                                               |
-| 10 | Train Crossing Chase    | Gameplay → cutscene   | The Robotaxi's autopilot malfunctions and the front-seat Scam drives. Robotaxi vs. moped. A train is coming at the crossing. **Fast enough:** the crew crosses and the train hits The Admin (cartoon, no gore). **Too slow:** he catches the crew → Fail ending. |
+| 10 | Train Crossing Chase    | Gameplay → cutscene   | The Robotaxi's autopilot malfunctions about 1 km down the two-lane road and the front-seat Scam drives. Robotaxi vs. moped. A train is coming at the crossing. **Fast enough:** the crew crosses and the train hits The Admin (cartoon, no gore). **Too slow:** he catches the crew → Fail ending. |
 | 11 | The Data Center         | Cutscene + interaction | A player plugs the stolen GPU into the ClosedAI data center. Inside a ceiling-to-floor circular containment column, ClosedAI's AI is taken down by **The Admin's own AI**, which was still on the GPU. Success ending.                        |
 | F  | You Have Been BANNED    | Cutscene (fail)        | If the whole crew is caught (or caught in the chase): a Dizcord ban modal, then The Admin goes back to eating.                                                                                          |
 | P  | Post-credits            | Cutscene               | The Admin, bandaged, tries to order a new GPU. It's out of stock, thanks to ClosedAI.                                                                                                                   |
@@ -176,6 +176,20 @@ preset voice and speed. See `research/voice-generation.md`.
 - **Robot workers (scene 11):** ClosedAI robots walk the racks in the
   background. When The Admin's AI wins, they all freeze, turn to the
   column and bow (or type "/ban"). One beat, no lines.
+
+## Script decisions (user, 2026-11-10, script v0.2)
+
+- **Cold open:** scene 01 keeps both parts as 2221 versions: a **hologram
+  news report**, then the **hologram podcast** clip.
+- **Scam in 2221:** he **uploaded himself**, and the player Scams are
+  **copies of him**. That's also why every player is Scam.
+- **Scene 07 lockdown:** when The Admin wakes he triggers a **server
+  lockdown**. Shutters close the basement walk-out and every ground-floor
+  door. The stairs stay open, and the attic roof window is the only exit
+  not on his system.
+- **Autopilot:** the Robotaxi's autopilot fails **mid-way down the two-lane
+  road (about 1 km)**. The front-seat Scam drives the rest: the last bends,
+  the merge, the highway and the crossing.
 
 ## Open questions
 
