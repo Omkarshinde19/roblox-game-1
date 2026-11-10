@@ -62,15 +62,12 @@ return function()
 	Seating.vase(living, at(-36, -54.5, 0, 2.4))
 	Storage.shelf(living, at(-26, -70.6, 180), "Bookshelf", 8, 9, 1.6, 4, C.darkWood, {
 		books(7),
-		books(
-			6,
-			{
-				n = "Self-help book",
-				s = V(0.5, 1.5, 1.1),
-				c = C.gold,
-				line = "'How to Win Friends and Ban People'. Signed by the author. He is the author.",
-			}
-		),
+		books(6, {
+			n = "Self-help book",
+			s = V(0.5, 1.5, 1.1),
+			c = C.gold,
+			line = "'How to Win Friends and Ban People'. Signed by the author. He is the author.",
+		}),
 		books(7),
 		{
 			{
@@ -334,7 +331,13 @@ return function()
 	})
 	Storage.counter(kitchen, at(24, -86, 180), "Island", 4, C.cream, {
 		{
-			{ n = "Blender", s = V(1, 1.8, 1), c = C.steel, m = M.Glass, line = "A blender. Not the 3D kind. Useless." },
+			{
+				n = "Blender",
+				s = V(1, 1.8, 1),
+				c = C.steel,
+				m = M.Glass,
+				line = "A blender. Not the 3D kind. Useless.",
+			},
 		},
 	})
 	local fruit = Kit.cylinder(kitchen, at(22, -86, 0, 3.5), "Fruit bowl", 0, 0, 0, 2, 0.6, C.gold, M.SmoothPlastic)
