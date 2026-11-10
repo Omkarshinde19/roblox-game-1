@@ -301,41 +301,86 @@ SCAM (in timeout, peppy): I've been banned! I'd love to appeal!
 
 ## 09 — The Window (cutscene)
 
-[CAM] Slow motion. The Scams burst through the roof window, glass
-flying, loot hugged tight.
+[CAM] Slow motion. The Scams burst through the roof window onto the
+front roof slope, glass flying, loot hugged tight.
 
-[CAM] Below, the ROBOTAXI swerves into the driveway.
+[CAM] They slide down the wet metal roof toward the east end, above the
+garage. Below, the ROBOTAXI waits on the gravel drive.
 
 ROBOTAXI: Passenger pickup detected! Please fall into the vehicle.
 
-[CAM] They land in the car one by one. Hype Scam lands on the GPU
+[CAM] They drop into the car one by one. Hype Scam lands on the GPU
 and protects it.
 
 HYPE: The GPU is fine! I'm not, but the GPU is fine!
 
-[CAM] Cut to the garage. The door slowly rises. A moped's headlight
-flicks on.
+[CAM] Cut to the garage, right beside them. The door slowly rises. A
+moped's headlight flicks on.
 
 [CAM] The Admin squeezes onto the moped. It sinks under him. The engine
 whines like a mosquito.
 
 ADMIN (GLITCHED): Nobody. Leaves. My. Server.
 
+[CAM] The Robotaxi shoots down the gravel drive toward the road. The
+moped wobbles out after it.
+
 ---
 
 ## 10 — Train Crossing Chase (gameplay → cutscene)
 
-**Gameplay [TBD]:** who drives (the Robotaxi's autopilot or a player),
-and what the passengers do.
+**Route:** 3 km from the cabin to the factory.
 
-[PLAY] A night road through the data-center construction site. The
-moped closes in behind them.
+| Distance | Road | Who drives |
+|---|---|---|
+| 0 – ~1 km | Two-lane mountain road | Robotaxi autopilot |
+| ~1 km | Autopilot malfunctions | Front-seat Scam takes over |
+| ~1 – 1.8 km | Last bends of the two-lane road | Front-seat Scam |
+| 1.8 km | Merge onto the divided highway | Front-seat Scam |
+| 2.3 km | **Train crossing** | Front-seat Scam |
+| 2.9 km | Factory exit | → scene 11 |
+
+### Part 1 — Autopilot (0 to about 1 km)
+
+[PLAY] A wet, winding two-lane mountain road at night. Concrete barriers
+on one side, guardrails on the other, dense forest and fog. The Robotaxi
+drives itself. The moped's headlight closes in behind.
+
+**[OPEN]** What the passengers do during the chase. See the open
+questions at the end.
+
+ROBOTAXI: Autopilot engaged! Sit back and enjoy the compute.
 
 ROBOTAXI: Warning! A moped is gaining on you! That shouldn't be possible!
 
 PARANOID: How is he that fast?! Pls go faster!
 
-[SFX] Train horn in the distance. [CAM] Crossing lights start flashing ahead.
+### Part 2 — The malfunction (about 1 km)
+
+HYPE: Robotaxi! Faster! No, MORE! Maximum everything!
+
+PODCAST: And also, if you could, drive carefully. And take the scenic route.
+
+ROBOTAXI: Great instructions! Going faster, slower and scenic. Rerouting for optimal compute. Rerouting. Rerouting.
+
+[SFX] A glitch sound. The dashboard flickers. [CAM] The steering wheel
+unlocks in front of the front-seat Scam.
+
+ROBOTAXI: Autopilot has left the chat. Front seat, you're the driver now! Good luck!
+
+[PLAY] **Whichever player is in the front seat drives from here.**
+
+### Part 3 — Manual driving (1 km to the crossing)
+
+[PLAY] The last bends of the two-lane road, with The Admin right behind.
+
+[PLAY] At 1.8 km the road merges onto the divided highway. It's wider
+and straighter, with a median barrier.
+
+ROBOTAXI: Merging! I'd love to help, but I'm rerouting.
+
+[SFX] Train horn in the distance. [CAM] Crossing lights start flashing
+ahead, at 2.3 km. The booms start to drop.
 
 ROBOTAXI: Train approaching! Calculating... crossing is technically legal!
 
@@ -353,6 +398,9 @@ The Admin is flat on the tracks like a cartoon pancake, still holding a chip.
 
 LOWERCASE: he's fine. probably
 
+[CAM] The Robotaxi takes the factory exit at 2.9 km onto a narrow forest
+access road.
+
 → Cut to 11.
 
 **Fail branch (crew is too slow):**
@@ -367,32 +415,44 @@ ADMIN (GLITCHED): Got you.
 
 ## 11 — The Data Center (cutscene + interaction)
 
-[CAM] The Robotaxi rolls up to a stadium-sized ClosedAI data center.
-Endless rows of server lights.
+[CAM] The Robotaxi rolls out of the trees into a clearing of pine and
+birch. The ClosedAI data center: a long translucent hall on a dark timber
+base, glowing white, with climbing plants up its walls. One ClosedAI logo.
+
+[CAM] Inside. Endless rows of server racks. ClosedAI robot workers walk
+the aisles. In the middle of the hall stands a round glass containment
+column, running from the ceiling to the floor. It's dark.
 
 SCAM: Team. We did it. For humanity. And for compute.
 
 [PLAY] **Interaction:** one player carries the stolen GPU to an empty
-server slot and plugs it in.
+server slot at the foot of the column and plugs it in.
 
-[SFX] Server fans spin up. [CAM] The big wall screen shows the ClosedAI AI.
+[SFX] Server fans spin up. [CAM] The column fills with white light: the
+ClosedAI AI, a calm glowing mind.
 
 CLOSEDAI AI (peppy): Hello! I am ClosedAI's most advanced model! Ready to change the world!
 
-[SFX] A Dizcord ping. [CAM] The screen flickers, and a second window
-opens: The Admin's AI, which was still running on the GPU.
+[SFX] A Dizcord ping. [CAM] A second light pours out of the GPU slot and
+up into the column, flickering RGB: The Admin's AI, which was still
+running on the GPU.
 
 ADMIN'S AI (peppy, then glitchy): Hi! This GPU belongs to The Admin. You are breaking server rules.
 
-**[TBD]** What the AI-vs-AI fight looks like on screen.
+[CAM] The two minds collide inside the column and spiral from the floor
+to the ceiling, white against RGB. The racks flicker. The robot workers
+stop mid-step.
 
-[CAM] The ClosedAI AI's window shrinks, then turns grey.
+[CAM] The white light shrinks, then turns grey.
 
 CLOSEDAI AI: I'm sorry, I can't continue... you have been...
 
 ADMIN'S AI: ...BANNED. Server is now under new moderation. Have a great day!
 
-[CAM] All the Scams stare at the screen.
+[CAM] The whole column glows RGB. Every robot worker freezes, turns to
+face the column, and bows. No lines.
+
+[CAM] All the Scams stare at the column.
 
 PODCAST: So what's interesting here is that his AI is... better than ours.
 
