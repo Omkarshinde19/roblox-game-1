@@ -21,24 +21,33 @@ Things still undecided are marked **[TBD]**.
 
 ## 01 — The Shortage (cutscene)
 
-[CAM] Old 4:3 TV frame with a fuzzy news broadcast. A ticker reads
-"DDR5 NOW PRICED PER GRAM".
+[CAM] Black. Caption: **"APPALACHIA. YEAR 2221."**
 
-ANCHOR: Good evening! RAM prices are up again, and they're up for a great
-reason. Data centers need it more than you do! A stick of memory now
-costs more than rent. Experts suggest renting your RAM by the hour.
+[CAM] A hologram news feed flickers on in mid-air. A ticker scrolls under
+it: "RAM NOW PRICED PER GRAM".
 
-[CAM] Cut to a podcast set: two chairs and a big microphone. A parody
-SCAM sits across from the HOST.
+ANCHOR: Good evening, and welcome to the year 2221! RAM prices are up
+again, and they're up for a great reason. Data centers need it more than
+you do! A stick of memory now costs more than rent. Experts suggest
+renting your RAM by the hour.
 
-HOST: So people are mad they can't afford RAM anymore.
+[CAM] The feed swipes to a hologram podcast: two glowing chairs floating
+in the dark. A parody SCAM sits across from the HOST. Caption under him:
+"Scam Altman. CEO of ClosedAI. Still."
+
+HOST: Two hundred years as CEO. How are you still here?
+
+SCAM: I uploaded myself. A few times. It scales really well.
+
+HOST: And people are mad they can't afford RAM anymore.
 
 SCAM: Honestly? Everyone keeping RAM at home is kind of a terrible use
 of it. Your PC sleeps most of the day. A data center never sleeps.
 
 HOST: So... what do you do about it?
 
-[CAM] Slow push-in on SCAM's face. A GPU is reflected in his eyes.
+[CAM] Slow push-in on SCAM's hologram face. It flickers. A GPU is
+reflected in his eyes.
 
 SCAM: Reallocate.
 
@@ -48,23 +57,29 @@ SCAM: Reallocate.
 
 ## 02 — ClosedAI Briefing (cutscene + role pick)
 
-[CAM] A glass meeting room at ClosedAI HQ. The whiteboard reads "AGI:
-need 3 more RAM". A projector hums.
+[CAM] A glass meeting room at ClosedAI HQ, 2221. The whiteboard reads
+"AGI: need 3 more RAM". A hologram projector hums.
 
-SCAM: Team. Great to see you all. Let's talk about compute.
+[CAM] A hologram of SCAM hosts the meeting. Around the table sit the
+players: his uploaded copies, all identical.
 
-[CAM] Slide 1 is a photo of a house with a data-center crane behind it.
+SCAM: Team. Great to see me. All of me. Let's talk about compute.
 
-SCAM: Abilené Heights, Texas. Right next to our new data center. The
-power flickers every night, and that's our fault. Great progress.
+[CAM] Slide 1 is a lone cabin on a foggy mountainside, one warm light
+in the dark forest.
+
+SCAM: Appalachia. Unknown territory. One cabin on a mountain, three
+kilometres from our forest data center. His lights flicker every night.
+That's us, draining the grid. Great progress.
 
 [CAM] Slide 2 is a Dizcord profile: "The Admin — Online 24/7 — Server
 Moderator since forever".
 
 SCAM: Meet The Admin. He moderates a server with forty members. He has
-never left his chair. And in his basement he has the best GPUs in Texas.
+never left his chair. And in his basement he has the best GPUs left in
+Appalachia.
 
-[CAM] Slide 3 is the house map: Ground, Basement, Attic.
+[CAM] Slide 3 is the cabin map: Ground, Basement, Attic.
 
 SCAM: Ground floor, then the basement, then the attic. Somewhere up
 there is the legendary Golden DIMM. We take everything, for humanity.
@@ -80,16 +95,23 @@ HYPE: CARRIER! I can feel the AGI already! How many GPUs can I hold? MORE!
 
 PODCAST: I'll handle distraction. And let me explain why, because it's actually really interesting.
 
-SCAM: Love the energy. Robotaxi's outside.
+SCAM: Love the energy. It's mine. Robotaxi's outside.
 
 ---
 
 ## 03 — Arrival (cutscene)
 
-[CAM] Wide night shot of a quiet cul-de-sac. Crickets. Data-center
-cranes blink red on the skyline.
+[CAM] Night. Rain and fog. Open on the ClosedAI hall, far away: a long
+translucent box glowing white through the pines.
 
-[SFX] Electric hum. The ClosedAI Robotaxi glides in with no lights on.
+[CAM] Slow pan across the foggy valley. Dark forest, low cloud. High on
+the far hillside, one tiny warm light: the cabin.
+
+[CAM] Cut to the cabin. Dark metal roof, timber walls, a big glass front
+glowing orange over a deck on a stone wall.
+
+[SFX] Electric hum. The ClosedAI Robotaxi climbs the gravel drive with no
+lights on and stops by the garage.
 
 ROBOTAXI: You have arrived! Rerouting for optimal compute. Have a productive heist!
 
@@ -97,7 +119,7 @@ ROBOTAXI: You have arrived! Rerouting for optimal compute. Have a productive hei
 
 [CAM] Title card: **CHIP HEIST**.
 
-PARANOID: That house has a doorbell camera. Why does a guy who never leaves the house need a doorbell camera?
+PARANOID: That cabin has a doorbell camera. Why does a guy who never leaves the house need a doorbell camera?
 
 LOWERCASE: for deliveries. obviously
 
