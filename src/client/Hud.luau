@@ -55,6 +55,7 @@ function Hud.start()
 	local noise = label(gui, "Noise", UDim2.fromOffset(260, 44), UDim2.new(0.5, 0, 0, 80), Vector2.new(0.5, 0))
 	local hidden = label(gui, "Hidden", UDim2.fromOffset(300, 40), UDim2.new(0.5, 0, 1, -230), Vector2.new(0.5, 1))
 	local tip = label(gui, "Tip", UDim2.fromOffset(330, 34), UDim2.new(0, 16, 1, -16), Vector2.new(0, 1))
+	local banned = label(gui, "Banned", UDim2.fromOffset(420, 48), UDim2.fromScale(0.5, 0.35), Vector2.new(0.5, 0.5))
 
 	tip.Text = "Hold E: open quietly   ·   Tap E: yank it open (loud)"
 	tip.TextColor3 = Color3.fromRGB(190, 195, 205)
@@ -142,6 +143,16 @@ function Hud.start()
 			end)
 		end
 	end)
+
+	-- banned banner
+	banned.Text = "BANNED  ·  a teammate must appeal you"
+	banned.BackgroundColor3 = Color3.fromRGB(150, 25, 25)
+	banned.Font = Enum.Font.GothamBold
+	local function showBanned()
+		banned.Visible = player:GetAttribute("InTimeout") == true
+	end
+	player:GetAttributeChangedSignal("InTimeout"):Connect(showBanned)
+	showBanned()
 
 	-- hidden badge
 	local function showHidden()
