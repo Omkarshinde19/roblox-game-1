@@ -306,6 +306,16 @@ HYPE: RUN, PODCAST!
 [PLAY] Route: up the basement stairs to the stair hall, then up the
 pull-down ladder into the attic. Every other exit is shuttered.
 
+[PLAY] **Second escape: the Hacker can reopen one shuttered door.** It's
+a long laptop minigame at the door while The Admin hunts, so the others
+have to keep him busy. Leaving this way skips the attic and the Golden
+DIMM.
+
+LOWERCASE (hacking a shutter): overriding his lockdown. his password is password. with a zero
+
+[PLAY] If the crew leaves by the reopened door, scene 09 starts at the
+Robotaxi on the gravel drive, without the roof-window jump.
+
 [PLAY] The Admin climbs after the crew. He's slow on the stairs and the
 ladder but fast in straight lines. Two Scams hold the ladder while the
 others climb.
@@ -328,11 +338,15 @@ SCAM (in timeout, peppy): I've been banned! I'd love to appeal!
 
 [PLAY] If all Scams are in timeout → **Fail ending (F)**.
 
-[PLAY] Reach the roof window on the front roof slope → cut to 09.
+[PLAY] Reach the roof window on the front roof slope, or leave by the
+door the Hacker reopened → cut to 09.
 
 ---
 
 ## 09 — The Window (cutscene)
+
+(If the crew left by the Hacker's reopened door, skip the first two
+shots: they run across the gravel to the Robotaxi.)
 
 [CAM] Slow motion. The Scams burst through the roof window onto the
 front roof slope, glass flying, loot hugged tight.
