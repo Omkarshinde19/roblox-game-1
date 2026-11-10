@@ -11,11 +11,15 @@ local OpenableService = require(script.OpenableService)
 local InspectService = require(script.InspectService)
 local LootService = require(script.LootService)
 local HidingService = require(script.HidingService)
+local TimeoutService = require(script.TimeoutService)
+local NpcService = require(script.NpcService)
 
 OpenableService.start()
 InspectService.start()
 LootService.start()
 HidingService.start()
+TimeoutService.start()
+NpcService.start()
 
 print(`[Server] {Config.GAME_NAME} v{Config.VERSION} started`)
 
