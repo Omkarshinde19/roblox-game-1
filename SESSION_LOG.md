@@ -497,3 +497,41 @@ rooms by eye.
 - Next: The Admin, Mom and the cat (behaviour trees), stage flow, then
   the Robotaxi.
 - Save/publish the place in Studio so the furnished house is kept.
+
+## 2026-11-10 — Session 4 (cont.): NPCs
+
+**Asked:** Build the NPCs.
+
+**Done:**
+- `src/server/Npc/`: `BehaviourTree` (selector, sequence, condition,
+  action), `NpcController` (pathfinding, door opening, vision cone with
+  glass see-through, hearing via NoiseService, subtitles, mood sign),
+  `Rigs`, `HouseMap`, `Admin`, `Mom`, `Cat`. `NpcService` spawns them by
+  `Config.DIFFICULTY` (Easy = cat only).
+- **The Admin:** sleeps at his chair ("Zzz"), snack-runs to the kitchen
+  fridge, wakes after loud noise, investigates, fills a suspicion meter
+  when he sees a Scam ("?"), then hunts ("!") and bans within 6 studs.
+  Three loud noises take him from calm to hunting. Gives up 10 s after
+  losing sight.
+- **Mom:** patrols the ground floor, calls DINNER every 90 s (which sends
+  The Admin on a snack run), and raises a loud alarm if she sees a Scam.
+- **Cat:** wanders both floors, walks through doors, knocks the vase over
+  and makes loud noise every 35–60 s.
+- `TimeoutService`: a banned Scam is frozen on the spot with a BANNED
+  sign until a teammate holds Appeal for 3 s. If everyone is banned the
+  run fails and the crew respawns.
+- An invisible ramp over the basement stairs (`04-house`).
+- Playtest: NPCs spawn with no errors. Watched The Admin spot the player,
+  go "?" then "!", cross the den and ban at 4 studs. Three door-yanks from
+  asleep also ended in a ban and a respawn.
+
+**Decisions (user):** Roblox dummy rigs for now; a banned Scam stays where
+they fell; The Admin runs his full loop now (scene 07's scripted wake-up
+comes later).
+
+**Not tested:** teammate Appeal (needs 2 players), Mom's alarm and dinner
+call, the cat's vase knock, The Admin opening the fridge, hiding from him,
+and the quiet hold-to-open.
+
+**Next:** stage flow and objectives (scenes 04–08), role tools, then the
+Robotaxi chase. Tuning numbers are in `src/shared/Config.luau`.
