@@ -21,3 +21,6 @@ ServerPackages/
 !.vscode/settings.json
 !.vscode/extensions.json
 .idea/
+
+# Raw third-party models and reference photos: kept on disk only, never committed
+assets/source/

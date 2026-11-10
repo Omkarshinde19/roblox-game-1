@@ -13,3 +13,7 @@ Anything marked **unverified** must be checked before it ships.
 
 Reference photos in `source/*.jpg` are inspiration only and are never
 imported into the game.
+
+**The raw files in `assets/source/` are not in this repository.** They are
+other people's work, so they stay on the developer's disk (git-ignored).
+Only our own Roblox-ready exports get committed.
