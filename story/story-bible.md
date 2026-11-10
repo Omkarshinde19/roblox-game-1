@@ -191,5 +191,17 @@ preset voice and speed. See `research/voice-generation.md`.
   road (about 1 km)**. The front-seat Scam drives the rest: the last bends,
   the merge, the highway and the crossing.
 
+## Script answers (user, 2026-11-10, after v0.2)
+
+- **Basement walk-out:** an open entry from the start, and the hardest
+  one. It skips the ground floor and puts the crew beside the sleeping
+  Admin.
+- **Chase passengers:** they throw Mountain Doom cans at the moped to slow
+  it. They can also throw stolen loot for a bigger slowdown, which costs
+  score.
+- **Lockdown shutters:** the **Hacker can reopen one door** with a long
+  minigame, as a second escape from Stage 3.
+- **Briefing:** a **hologram of the original Scam** briefs his copies.
+
 ## Open questions
 
